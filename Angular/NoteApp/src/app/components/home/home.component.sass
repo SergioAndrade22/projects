@@ -1,0 +1,116 @@
+@import '../../../sass/variables'
+
+.nav
+    width: 100%
+    height: 5rem
+    display: flex
+    top: 0
+    left: 0
+    padding: .6rem 2rem .6rem
+    background-color: $color-primary
+    justify-content: space-between
+    align-items: center
+    font-size: 1.8rem
+
+    &__list
+        list-style-type: none
+        display: flex
+        justify-content: space-evenly
+    
+    &__item
+        &-container
+            transition: all .2s cubic-bezier(.93,-0.01,.71,.46)
+
+            &:hover
+                transform: scale(1.2) translateY(.5rem)
+
+        padding: 2rem 2rem
+        cursor: pointer
+        color: $font-color-dark
+        text-decoration: none
+        
+        &:hover,
+        &:focus
+            outline: .6rem solid $color-secondary
+            outline-offset: -1.5rem
+        
+        
+.logo
+    display: inline-block
+
+    &--small
+        width: 4rem
+        height: 4rem
+
+.search
+    display: flex
+    width: 30%
+    height: 2.5rem
+    justify-content: center
+    background-color: white
+    border-radius: 1rem
+    padding: .2rem
+
+    &__input
+        width: 90%
+        padding-left: .2rem
+        outline: none
+        border: none
+
+    &__icon
+        margin-left: .4rem
+
+.content
+    display: grid
+    height: calc(100vh - 11.2rem)
+    padding-top: 1rem
+    grid-template-columns: repeat(6, 1fr)
+    font-size: 2rem
+    background-color: $font-color-dark
+    color: $font-color-light
+
+    &__side
+        grid-column: 1
+
+    &__list
+
+    &__item
+        padding: .5rem 1rem
+        margin: 2rem auto
+        
+
+        &:hover
+            background-color: $color-secondary
+            border-radius: 500rem
+
+
+    &__main
+        grid-column: 2 / -1
+        padding-left: 1rem
+
+.footer
+    height: 6rem
+    font-size: 1.8rem
+    background-color: $color-primary
+
+    &__info
+        text-align: center
+        margin-bottom: 1rem
+
+    &__list
+        list-style-type: none
+        display: flex
+        justify-content: space-evenly
+
+    &__item
+        &-container
+            &:hover
+                transform: skew(0, -8deg) scale(1.1)
+
+        text-decoration: none
+        color: black
+
+.selected
+    background-color: $color-primary
+    color: $font-color-dark
+    border-radius: 500rem
