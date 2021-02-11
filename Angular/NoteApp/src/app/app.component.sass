@@ -1,0 +1,19 @@
+@import '../sass/variables'
+
+.content
+    display: grid
+    height: 88vh
+    padding-top: 1rem
+    grid-template-columns: repeat(7, 1fr)
+    font-size: 2rem
+    background-color: $font-color-dark
+    color: $font-color-light
+
+    &__side
+        grid-column: 1
+
+
+    &__main
+        grid-column: 2 / -1
+        height: calc(88vh - 2rem)
+        

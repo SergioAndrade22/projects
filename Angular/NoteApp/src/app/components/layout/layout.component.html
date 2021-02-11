@@ -1,0 +1,61 @@
+<nav class="nav">
+    <div class="logo-container" [routerLink]="['/home']">
+        <img src="../../../assets/img/favicon.ico" alt="Application Logo" class="logo--small">
+    </div>
+
+    <div class="search">
+        <input type="text" class="search__input">
+
+        <button class="search__button" type="submit">
+            <i class="fas fa-search"></i>
+        </button>
+    </div>
+
+    <ul class="nav__list">
+        <li class="nav__item-container">
+            <a [routerLink]="['/home']" routerLinkActive="active" class="nav__item">Home</a>
+        </li>
+
+        <li class="nav__item-container">
+            <a href="#" class="nav__item">About</a>
+        </li>
+
+        <li class="nav__item-container">
+            <a href="#" class="nav__item">Sign UP</a>
+        </li>
+
+        <li class="nav__item-container">
+            <a href="#" class="nav__item">Sign IN</a>
+        </li>
+    </ul>
+</nav>
+
+<ng-content></ng-content>
+
+<footer class="footer">
+    <div class="footer__info">
+        <p>SOME RANDOM INFO</p>
+    </div>
+
+    <ul class="footer__list">
+        <li class="footer__item-container">
+            <a class="footer__item" href="#">Anchor a</a>
+        </li>
+
+        <li class="footer__item-container">
+            <a class="footer__item" href="#">Anchor b</a>
+        </li>
+
+        <li class="footer__item-container">
+            <a class="footer__item" href="#">Anchor c</a>
+        </li>
+
+        <li class="footer__item-container">
+            <a class="footer__item" href="#">Anchor d</a>
+        </li>
+
+        <li class="footer__item-container">
+            <a class="footer__item" href="#">Anchor e</a>
+        </li>
+    </ul>
+</footer>

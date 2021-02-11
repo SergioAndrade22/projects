@@ -1,0 +1,23 @@
+@import '../../../sass/variables'
+
+.content
+    &__list
+        list-style-type: none
+
+    &__item
+        padding: .7rem 0 .7rem 2rem
+        margin: 2rem auto
+
+        &:hover
+            background-color: $color-secondary
+            border-radius: 500rem
+            cursor: pointer
+
+        &:focus
+            outline: none
+
+
+.selected
+    background-color: $color-primary
+    color: $font-color-dark
+    border-radius: 500rem
