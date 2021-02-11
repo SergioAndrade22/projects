@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { NoteDto } from './dto/note.dto';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Note } from './entities/note.entity';
-import { Repository, Not } from 'typeorm';
+import { Repository } from 'typeorm';
 
 @Injectable()
 export class NotesService {
@@ -36,12 +36,7 @@ export class NotesService {
 
   async remove(id: number): Promise<Note> {
     return this.notesRepository.delete(id)
-            .then(() => {
-              const toRet = this.findOne(id);
-              return toRet;
-              })
-            .catch(() => {
-              return null;
-            });
+            .then((deletedNote) => deletedNote)
+            .catch(() => null);
   }
 }

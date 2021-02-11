@@ -5,6 +5,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { NotesModule } from './notes/notes.module';
 import { Note } from './notes/entities/note.entity';
+import { CategoriesModule } from './categories/categories.module';
 
 @Module({
   imports: [
@@ -18,6 +19,7 @@ import { Note } from './notes/entities/note.entity';
       database: 'notes',
       entities: [Note]
     }),
+    CategoriesModule,
   ],
   controllers: [AppController],
   providers: [AppService],

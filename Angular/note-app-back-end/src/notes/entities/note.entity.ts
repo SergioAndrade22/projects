@@ -1,19 +1,24 @@
-import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, ManyToMany, JoinTable } from 'typeorm';
+import { Category } from '../../categories/entities/category.entity';
 
 @Entity()
 export class Note {
-    @PrimaryGeneratedColumn()
-    id: number;
+  @PrimaryGeneratedColumn()
+  id: number;
 
-    @Column()
-    title: string;
+  @Column()
+  title: string;
 
-    @Column()
-    body: string;
+  @Column()
+  body: string;
 
-    @Column()
-    created: Date;
+  @Column()
+  created: Date;
 
-    @Column()
-    updated: Date;
+  @Column()
+  updated: Date;
+
+  @ManyToMany(type => Category)
+  @JoinTable()
+  categories: Category[];
 }
