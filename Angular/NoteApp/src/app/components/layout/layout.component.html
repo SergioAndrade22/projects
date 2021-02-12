@@ -1,34 +1,37 @@
-<nav class="nav">
-    <div class="logo-container" [routerLink]="['/home']">
-        <img src="../../../assets/img/favicon.ico" alt="Application Logo" class="logo--small">
-    </div>
-
-    <div class="search">
-        <input type="text" class="search__input">
-
-        <button class="search__button" type="submit">
-            <i class="fas fa-search"></i>
-        </button>
-    </div>
-
-    <ul class="nav__list">
-        <li class="nav__item-container">
-            <a [routerLink]="['/home']" routerLinkActive="active" class="nav__item">Home</a>
-        </li>
-
-        <li class="nav__item-container">
-            <a href="#" class="nav__item">About</a>
-        </li>
-
-        <li class="nav__item-container">
-            <a href="#" class="nav__item">Sign UP</a>
-        </li>
-
-        <li class="nav__item-container">
-            <a href="#" class="nav__item">Sign IN</a>
-        </li>
-    </ul>
-</nav>
+<header>
+    <nav class="nav">
+        <div class="logo-container" [routerLink]="['/home']">
+            <img src="../../../assets/img/favicon.ico" alt="Application Logo" class="logo--small">
+        </div>
+    
+        <div class="search">
+            <label for="search__input" class="search__label">Search</label>
+            <input id="search__input" type="text" class="search__input">
+    
+            <button class="search__button" type="submit" aria-label="Search Button">
+                <i class="fas fa-search"></i>
+            </button>
+        </div>
+    
+        <ul class="nav__list">
+            <li class="nav__item-container">
+                <a [routerLink]="['/home']" routerLinkActive="active" class="nav__item">Home</a>
+            </li>
+    
+            <li class="nav__item-container">
+                <a href="#" class="nav__item">About</a>
+            </li>
+    
+            <li class="nav__item-container">
+                <a href="#" class="nav__item">Sign UP</a>
+            </li>
+    
+            <li class="nav__item-container">
+                <a href="#" class="nav__item">Sign IN</a>
+            </li>
+        </ul>
+    </nav>
+</header>
 
 <ng-content></ng-content>
 
