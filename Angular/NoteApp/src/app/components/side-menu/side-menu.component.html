@@ -11,25 +11,9 @@
         <i class="fas fa-user"></i>
         My profile
     </li>
-    <li class="content__item">
+    <li *ngFor="let cat of categories" class="content__item">
         <i class="fas fa-greater-than"></i>
-        To Do
-    </li>
-    <li class="content__item">
-        <i class="fas fa-greater-than"></i>
-        To Buy
-    </li>
-    <li class="content__item">
-        <i class="fas fa-greater-than"></i>
-        Places to go
-    </li>
-    <li class="content__item">
-        <i class="fas fa-greater-than"></i>
-        Work
-    </li>
-    <li class="content__item">
-        <i class="fas fa-greater-than"></i>
-        Pages to visit
+        {{cat.name}}
     </li>
     <li class="content__item">
         <i class="fas fa-trash"></i>

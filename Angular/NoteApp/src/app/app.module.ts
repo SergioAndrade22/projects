@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -9,6 +10,8 @@ import { NoteComponent } from './components/note/note.component';
 import { SideMenuComponent } from './components/side-menu/side-menu.component';
 import { NotesComponent } from './components/notes/notes.component';
 import { NewNoteComponent } from './components/new-note/new-note.component';
+import { CategoriesService } from './services/categories.service';
+import { NotesService } from './services/notes.service';
 
 @NgModule({
   declarations: [
@@ -22,9 +25,13 @@ import { NewNoteComponent } from './components/new-note/new-note.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    CategoriesService,
+    NotesService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
