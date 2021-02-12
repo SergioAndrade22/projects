@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Category, CategoryDto } from '../components/core/models/category.model';
+import { Category, CategoryDto } from '../core/models/category.model';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { baseURL } from '../constants/constants';
