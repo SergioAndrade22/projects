@@ -35,8 +35,9 @@ export class NotesService {
   }
 
   async remove(id: number): Promise<Note> {
+    const toRet = await this.notesRepository.findOne(id);
     return this.notesRepository.delete(id)
-            .then((deletedNote) => deletedNote)
+            .then(() => toRet)
             .catch(() => null);
   }
 }

@@ -6,6 +6,7 @@ import { AppService } from './app.service';
 import { NotesModule } from './notes/notes.module';
 import { Note } from './notes/entities/note.entity';
 import { CategoriesModule } from './categories/categories.module';
+import { Category } from './categories/entities/category.entity';
 
 @Module({
   imports: [
@@ -17,7 +18,7 @@ import { CategoriesModule } from './categories/categories.module';
       username: 'notesAdmin',
       password: 'admin',
       database: 'notes',
-      entities: [Note]
+      entities: [Note, Category]
     }),
     CategoriesModule,
   ],

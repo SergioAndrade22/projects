@@ -32,8 +32,9 @@ export class CategoriesService {
   }
 
   async remove(id: number): Promise<Category> {
+    const toRet = await this.categoryRepository.findOne(id);
     return this.categoryRepository.delete(id)
-            .then((deletedCategory) => deletedCategory)
+            .then(() => toRet)
             .catch(() => null);
   }
 }
