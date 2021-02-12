@@ -26,11 +26,8 @@ export class NotesService {
   }
 
   async update(id: number, noteDto: NoteDto): Promise<Note> {
-    const noteToSave = await this.notesRepository.findOne(id);
-    noteToSave.title = noteDto.title;
-    noteToSave.body = noteDto.body;
-    noteToSave.created = noteDto.created;
-    noteToSave.updated = noteDto.updated;
+    let noteToSave = await this.notesRepository.findOne(id);
+    noteToSave = {...noteToSave, ...noteDto};
     return this.notesRepository.save(noteToSave);
   }
 
