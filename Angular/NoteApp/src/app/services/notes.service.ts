@@ -3,6 +3,7 @@ import { Note, NoteDto } from '../core/models/note.model';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { baseURL } from '../constants/constants';
+import { NotExpr } from '@angular/compiler';
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +13,8 @@ export class NotesService {
   constructor(private _http: HttpClient) {}
 
   create(note: NoteDto): Observable<Note> {
+    note.created = note.updated = new Date();
+    note.deleted = false;
     return this._http.post(`${baseURL}/notes`, note) as Observable<Note>;
   }
 
@@ -24,6 +27,7 @@ export class NotesService {
   }
 
   update(id: number, note: NoteDto): Observable<Note> {
+    note.updated = new Date();
     return this._http.put(`${baseURL}/notes/${id}`, note) as Observable<Note>;
   }
 

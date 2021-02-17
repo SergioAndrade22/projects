@@ -1,0 +1,10 @@
++---------+---------------+------+-----+---------+----------------+
+| Field   | Type          | Null | Key | Default | Extra          |
++---------+---------------+------+-----+---------+----------------+
+| id      | int(11)       | NO   | PRI | NULL    | auto_increment |
+| title   | varchar(60)   | YES  |     | NULL    |                |
+| body    | varchar(1200) | YES  |     | NULL    |                |
+| created | date          | YES  |     | NULL    |                |
+| updated | date          | YES  |     | NULL    |                |
+| deleted | tinyint(4)    | YES  |     | NULL    |                |
++---------+---------------+------+-----+---------+----------------+

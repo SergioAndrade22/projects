@@ -23,5 +23,5 @@ export class Note {
   categories: Category[];
 
   @Column()
-  deleted: boolean;
+  deleted: number;
 }

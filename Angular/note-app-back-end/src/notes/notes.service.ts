@@ -18,7 +18,7 @@ export class NotesService {
   }
 
   findAll(): Promise<Note[]> {
-    return this.notesRepository.find({deleted: false});
+    return this.notesRepository.find({deleted: 0});
   }
 
   findOne(id: number): Promise<Note> {
@@ -26,7 +26,7 @@ export class NotesService {
   }
 
   findDeleted(): Promise<Note[]> {
-    return this.notesRepository.find({deleted: true});
+    return this.notesRepository.find({deleted: 1});
   }
 
   async update(id: number, noteDto: NoteDto): Promise<Note> {
@@ -37,7 +37,7 @@ export class NotesService {
 
   async remove(id: number): Promise<Note> {
     const toRet = await this.notesRepository.findOne(id);
-    toRet.deleted = true;
-    return toRet;
+    toRet.deleted = 1;
+    return this.notesRepository.save(toRet);
   }
 }
