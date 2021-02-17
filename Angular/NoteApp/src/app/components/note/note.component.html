@@ -1,9 +1,9 @@
 <form [formGroup]="noteForm" class="note">
-    <input aria-label="Note title input field" formControlName="title" id="input__title"
+    <input aria-label="Note title input field" formControlName="title" [id]="'input__title'+note?.id"
            role="textbox" spellcheck="true" aria-multiline="false" class="note__title" 
            required maxlength="60" placeholder="Note Title here..."/>
 
-    <textarea aria-label="Note body input field" formControlName="body" id="input__body" 
+    <textarea aria-label="Note body input field" formControlName="body" [id]="'input__body'+note?.id" 
               role="textbox" spellcheck="true" aria-multiline="true" class="note__body" 
               maxlength="1200" required placeholder="Note Body here...">
     </textarea>

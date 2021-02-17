@@ -21,12 +21,12 @@ export class NoteComponent implements OnChanges {
   constructor(private _notes: NotesService) {}
 
   ngOnChanges(): void {
-    const input = document.getElementById('input__title')! as HTMLInputElement;
+    const input = document.getElementsByTagName('input')![0] as HTMLInputElement;
     input.setAttribute('contenteditable', this.isEdit.toString());
     if (this.note)
       this.noteForm.controls['title'].setValue(this.note.title);
 
-    const textArea = document.getElementById('input__body')! as HTMLTextAreaElement;
+    const textArea = document.getElementsByTagName('textarea')![0] as HTMLTextAreaElement;
     textArea.setAttribute('contenteditable', this.isEdit.toString());
     if (this.note)
       this.noteForm.controls['body'].setValue(this.note.body);
