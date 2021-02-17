@@ -1,32 +1,13 @@
 <div class="home-container">
     <h1 class="home__title">NoteKeep++</h1>
     <div class="home__body">
-        <p class="home__description">This is a Google Keep clone project, with it I aim for the following:</p>
+        <p class="home__description">{{Language.home__header}}</p>
         <ul class="home__list">
-            <li class="home__item">
+            <li class="home__item" *ngFor="let detail of Language.home__details">
                 <i class="fas fa-caret-right home__item-icon"></i>
-                Enhance my ability with Angular 2+
-            </li>
-
-            <li class="home__item">
-                <i class="fas fa-caret-right home__item-icon"></i>
-                Develop the sufficient knowledge to plan small/medium projects ahead
-            </li>
-
-            <li class="home__item">
-                <i class="fas fa-caret-right home__item-icon"></i>
-                Challenge myself as a fullstack developer
-            </li>
-
-            <li class="home__item">
-                <i class="fas fa-caret-right home__item-icon"></i>
-                Gain a better understanding of NestJS and MySQL, the subjacent back-end technologies
-            </li>
-
-            <li class="home__item">
-                <i class="fas fa-caret-right home__item-icon"></i>
-                Add funcionality that, under my consideration, Keep is missing
+                {{detail}}
             </li>
         </ul>
     </div>
+    <button (click)="english()" mat-button>Change to English</button>
 </div>
