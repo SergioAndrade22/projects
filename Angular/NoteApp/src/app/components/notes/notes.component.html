@@ -1,3 +1,21 @@
 <div class="notes-container">
     <app-note [isEdit]="true" *ngFor="let note of (notes | async)" [id]="'note:'+note.id" [note]="note"></app-note>
+    <ng-container *ngIf="((notes | async)?.length === 0)">
+        <ng-container [ngSwitch]="(params | async)?.state">
+            <div *ngSwitchCase="'active'" class="message__container">
+                <div class="message">
+                    YOU HAVE NO NOTES, TRY CREATING ONE...
+                </div>
+                <button type="submit" aria-label="Creation confirm button"
+                    (click)="newNote()"
+                    class="message__btn message__btn--left message__btn--create">
+                    New Note
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+            <div *ngSwitchCase="'deleted'">
+                No Deleted Notes...
+            </div>
+        </ng-container>
+    </ng-container>
 </div>

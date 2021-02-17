@@ -7,15 +7,11 @@
         <i class="fas fa-clipboard"></i>
         View all notes
     </li>
-    <li class="content__item">
-        <i class="fas fa-user"></i>
-        My profile
-    </li>
     <li *ngFor="let cat of categories" class="content__item">
         <i class="fas fa-greater-than"></i>
         {{cat.name}}
     </li>
-    <li class="content__item" [routerLink]="['/notes/view/deleted']">
+    <li class="content__item" [routerLink]="['/notes/view/deleted']" routerLinkActive="selected">
         <i class="fas fa-trash"></i>
         Deleted
     </li>

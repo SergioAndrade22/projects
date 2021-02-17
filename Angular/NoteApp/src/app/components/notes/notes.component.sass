@@ -1,6 +1,34 @@
+@import '../../../sass/variables'
+
 .notes-container
     display: grid
     grid-template-columns: repeat(auto-fill, minmax(35vw, 1fr))
     justify-content: space-evenly
-    overflow-y: scroll
+    overflow-y: auto
     padding-left: 1rem
+
+.message
+    &__container
+        display: flex
+        grid-column: 1 / -1
+        margin: 2rem auto
+        flex-direction: column
+        justify-content: center
+        padding: 1rem
+        border-radius: .5rem
+        background-color: $color-primary
+        color: $font-color-darker
+    
+    margin-bottom: 2rem
+
+    &__btn
+        width: 30%
+        border-radius: 500rem
+        align-self: center
+        font-size: 2rem
+        cursor: pointer
+        padding: .3rem 0
+
+        &:hover
+            transform: scale(1.05)
+            box-shadow: $box-shadow-small
