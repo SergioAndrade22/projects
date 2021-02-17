@@ -17,6 +17,11 @@ export class NotesController {
     return this.notesService.findAll();
   }
 
+  @Get('/deleted')
+  findDeleted(): Promise<Note[]> {
+    return this.notesService.findDeleted();
+  }
+
   @Get(':id')
   findOne(@Param('id') id: string): Promise<Note> {
     return this.notesService.findOne(+id);

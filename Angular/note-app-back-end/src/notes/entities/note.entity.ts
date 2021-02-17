@@ -21,4 +21,7 @@ export class Note {
   @ManyToMany(type => Category)
   @JoinTable()
   categories: Category[];
+
+  @Column()
+  deleted: boolean;
 }
