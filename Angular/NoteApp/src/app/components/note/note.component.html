@@ -1,5 +1,24 @@
 <form [formGroup]="noteForm" class="note">
-    <input aria-label="Note title input field" formControlName="title" id="input__title" role="textbox" spellcheck="true" aria-multiline="false" class="note__title" required maxlength="60" placeholder="Note Title here..."/>
-    <textarea aria-label="Note body input field" formControlName="body" id="input__body" role="textbox" spellcheck="true" aria-multiline="true" class="note__body" maxlength="1200" required placeholder="Note Body here..."></textarea>
-    <button [hidden]="!isEdit" [disabled]="!isEdit || noteForm.invalid" type="submit" aria-label="Creation button" (click)="saveNote()" class="note__btn">Create</button>
+    <input aria-label="Note title input field" formControlName="title" id="input__title"
+           role="textbox" spellcheck="true" aria-multiline="false" class="note__title" 
+           required maxlength="60" placeholder="Note Title here..."/>
+
+    <textarea aria-label="Note body input field" formControlName="body" id="input__body" 
+              role="textbox" spellcheck="true" aria-multiline="true" class="note__body" 
+              maxlength="1200" required placeholder="Note Body here...">
+    </textarea>
+
+    <button [hidden]="!isCreate" [disabled]="!isCreate || noteForm.invalid" type="submit" 
+            aria-label="Creation confirm button" (click)="saveNote()" 
+            class="note__btn note__btn--left note__btn--create">
+        <i class="fas fa-notes-medical"></i>
+        Create
+    </button>
+    
+    <button [hidden]="!isEdit" [disabled]="!isEdit || noteForm.invalid" type="submit" 
+            aria-label="Deletion confirm button" (click)="deleteNote()" 
+            class="note__btn note__btn--right note__btn--delete">
+        <i class="fas fa-eraser"></i>
+        Delete
+    </button>
 </form>

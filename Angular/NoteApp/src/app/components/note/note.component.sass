@@ -42,8 +42,6 @@
         color: $font-color-darker
         border-radius: 500rem
         width: 20%
-        align-self: flex-end
-        margin-right: 1rem
         cursor: pointer
         transition: all .2s linear
 
@@ -52,6 +50,24 @@
             box-shadow: $box-shadow-small
 
         &:hover:disabled
-            background-color: $color-alert
             color: $color-light
             cursor: not-allowed
+
+        &--left
+            align-self: flex-end
+            margin-right: 1rem
+
+        &--right
+            align-self: flex-start
+            margin-left: 1rem
+
+        &--create
+            &:hover:enabled
+                background-color: $color-confirm
+                color: $font-color-darker
+        
+        &--delete
+            &:hover:enabled
+                background-color: $color-alert
+                color: $font-color-darker
+                
