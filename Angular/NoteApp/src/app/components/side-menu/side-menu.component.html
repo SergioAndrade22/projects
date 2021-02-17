@@ -3,7 +3,7 @@
         <i class="fas fa-plus"></i>
         Create new note
     </li>
-    <li class="content__item" [routerLink]="['/notes/view']" routerLinkActive="selected">
+    <li class="content__item" [routerLink]="['/notes/view/active']" routerLinkActive="selected">
         <i class="fas fa-clipboard"></i>
         View all notes
     </li>
@@ -15,7 +15,7 @@
         <i class="fas fa-greater-than"></i>
         {{cat.name}}
     </li>
-    <li class="content__item">
+    <li class="content__item" [routerLink]="['/notes/view/deleted']">
         <i class="fas fa-trash"></i>
         Deleted
     </li>

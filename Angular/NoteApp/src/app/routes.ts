@@ -6,6 +6,6 @@ import { NewNoteComponent } from './components/new-note/new-note.component';
 export const ROUTES: Routes = [
     { path: '', pathMatch: 'full', redirectTo: 'home' },
     { path: 'home', component: HomeComponent },
-    { path: 'notes/view', component: NotesComponent},
+    { path: 'notes/view/:state', component: NotesComponent},
     { path: 'notes/create', component: NewNoteComponent}
 ];

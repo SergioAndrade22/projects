@@ -22,6 +22,10 @@ export class NotesService {
     return this._http.get(`${baseURL}/notes`) as Observable<Note[]>;
   }
 
+  findDeleted(): Observable<Note[]> {
+    return this._http.get(`${baseURL}/notes/deleted`) as Observable<Note[]>;
+  }
+
   find(id: number): Observable<Note> {
     return this._http.get(`${baseURL}/notes/${id}`) as Observable<Note>;
   }
