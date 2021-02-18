@@ -40,4 +40,11 @@ export class NotesService {
     toRet.deleted = 1;
     return this.notesRepository.save(toRet);
   }
+
+  async permaRemove(id: number): Promise<Note> {
+    const toRet = await this.notesRepository.findOne(id);
+    return this.notesRepository.delete(id)
+              .then(() => toRet)
+              .catch(() => null);
+  }
 }

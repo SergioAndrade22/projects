@@ -41,7 +41,8 @@
         font-weight: 700
         color: $font-color-darker
         border-radius: 500rem
-        width: 20%
+        width: fit-content
+        padding: 0 1rem
         cursor: pointer
         transition: all .2s linear
 
@@ -61,6 +62,9 @@
             align-self: flex-start
             margin-left: 1rem
 
+        &--center
+            align-self: center
+
         &--create
             &:hover:enabled
                 background-color: $color-confirm
@@ -70,4 +74,7 @@
             &:hover:enabled
                 background-color: $color-alert
                 color: $font-color-darker
-                
+    
+.buttons-container
+    display: flex
+    justify-items: space-evenly

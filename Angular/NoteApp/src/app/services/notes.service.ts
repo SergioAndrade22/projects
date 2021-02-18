@@ -14,7 +14,7 @@ export class NotesService {
 
   create(note: NoteDto): Observable<Note> {
     note.created = note.updated = new Date();
-    note.deleted = false;
+    note.deleted = 0;
     return this._http.post(`${baseURL}/notes`, note) as Observable<Note>;
   }
 
@@ -37,5 +37,9 @@ export class NotesService {
 
   remove(id: number): Observable<Note> {
     return this._http.delete(`${baseURL}/notes/${id}`) as Observable<Note>;
+  }
+
+  permaRemove(id: number): Observable<Note> {
+    return this._http.delete(`${baseURL}/notes/deleted/${id}`) as Observable<Note>;
   }
 }

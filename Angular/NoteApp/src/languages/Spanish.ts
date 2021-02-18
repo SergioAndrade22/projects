@@ -24,7 +24,8 @@ export const Spanish = {
         titlePlaceholder: 'El título aquí...',
         bodyPlaceholder: 'El cuerpo aquí...',
         createLegend: 'Crear',
-        deleteLegend: 'Eliminar'
+        deleteLegend: 'Eliminar',
+        permaDeleteLegend: 'Eliminar permanentemente'
     },
     notes__items: {
         message: 'No tienes notas creadas, intenta crear una...',

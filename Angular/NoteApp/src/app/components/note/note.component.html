@@ -8,17 +8,26 @@
               maxlength="1200" required [placeholder]="_language.selectedLanguage.note__items.bodyPlaceholder">
     </textarea>
 
-    <button [hidden]="!isCreate" [disabled]="!isCreate || noteForm.invalid" type="submit" 
-            aria-label="Creation confirm button" (click)="saveNote()" 
-            class="note__btn note__btn--left note__btn--create">
-        <i class="fas fa-notes-medical"></i>
-        {{_language.selectedLanguage.note__items.createLegend}}
-    </button>
+    <div class="buttons-container">
+        <button [hidden]="!isCreate" [disabled]="!isCreate || noteForm.invalid" type="submit" 
+                aria-label="Creation button" (click)="saveNote()" 
+                class="note__btn note__btn--left note__btn--create">
+            <i class="fas fa-notes-medical"></i>
+            {{_language.selectedLanguage.note__items.createLegend}}
+        </button>
+        
+        <button [hidden]="!isEdit || note!.deleted === 1    " [disabled]="!isEdit || noteForm.invalid" type="submit" 
+                aria-label="Deletion button" (click)="deleteNote()" 
+                class="note__btn note__btn--right note__btn--delete">
+            <i class="fas fa-eraser"></i>
+            {{_language.selectedLanguage.note__items.deleteLegend}}
+        </button>
     
-    <button [hidden]="!isEdit" [disabled]="!isEdit || noteForm.invalid" type="submit" 
-            aria-label="Deletion confirm button" (click)="deleteNote()" 
-            class="note__btn note__btn--right note__btn--delete">
-        <i class="fas fa-eraser"></i>
-        {{_language.selectedLanguage.note__items.deleteLegend}}
-    </button>
+        <button [hidden]="!isEdit || note!.deleted === 0" [disabled]="!isEdit || noteForm.invalid" type="submit" 
+                aria-label="Permanent deletion button" (click)="permanentDelete()" 
+                class="note__btn note__btn--center note__btn--delete">
+            <i class="fas fa-eraser"></i>
+            {{_language.selectedLanguage.note__items.permaDeleteLegend}}
+        </button>
+    </div>
 </form>

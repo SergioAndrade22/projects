@@ -42,4 +42,9 @@ export class NoteComponent implements OnChanges {
     this._notes.remove(this.note!.id).subscribe();
     location.reload()
   }
+
+  permanentDelete(): void {
+    this._notes.permaRemove(this.note!.id).subscribe();
+    location.reload();
+  }
 }

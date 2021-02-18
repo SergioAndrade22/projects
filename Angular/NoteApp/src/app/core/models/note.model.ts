@@ -6,7 +6,7 @@ export class Note {
     created!: Date;
     updated!: Date;
     categories!: Category[];
-    deleted!: boolean;
+    deleted!: number;
 }
 
 export class NoteDto {
@@ -15,5 +15,5 @@ export class NoteDto {
     created?: Date;
     updated?: Date;
     categories?: Category[];
-    deleted?: boolean;
+    deleted?: number;
 }

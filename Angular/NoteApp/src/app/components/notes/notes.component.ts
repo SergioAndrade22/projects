@@ -13,6 +13,7 @@ import { Language } from '../../../languages/language.service';
 export class NotesComponent {
   notes: Observable<Note[]> = new Observable();
   params: Observable<Params> = new Observable();
+  deletedView: boolean = false;
 
   constructor(private _notes: NotesService,
               private _activatedRoute: ActivatedRoute,
@@ -22,8 +23,10 @@ export class NotesComponent {
     this.params.subscribe(params => {
       if (params.state === 'active')
         this.notes = this._notes.findAll();
-      if (params.state === 'deleted')
+      if (params.state === 'deleted'){
         this.notes = this._notes.findDeleted();
+        this.deletedView = true;
+      }
     });
   }
 

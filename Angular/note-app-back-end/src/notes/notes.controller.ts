@@ -36,4 +36,9 @@ export class NotesController {
   remove(@Param('id') id: string): Promise<Note> {
     return this.notesService.remove(+id);
   }
+
+  @Delete('deleted/:id')
+  permaRemove(@Param('id') id: string): Promise<Note> {
+    return this.notesService.permaRemove(+id);
+  }
 }

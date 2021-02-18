@@ -24,7 +24,8 @@ export const English = {
         titlePlaceholder: 'Note title here...',
         bodyPlaceholder: 'Note body here...',
         createLegend: 'Create',
-        deleteLegend: 'Delete'
+        deleteLegend: 'Delete',
+        permaDeleteLegend: 'Delete Permanently'
     },
     notes__items: {
         message: 'You have no notes, try creating one...',
