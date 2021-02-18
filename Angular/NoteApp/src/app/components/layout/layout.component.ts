@@ -24,6 +24,7 @@ export class LayoutComponent implements OnInit {
   }
 
   theme(): void {
-    document.documentElement.setAttribute('theme', 'dark');
+    const currTheme = document.documentElement.getAttribute('theme');    
+    document.documentElement.setAttribute('theme', currTheme === 'dark' ? 'light' : 'dark');
   }
 }
