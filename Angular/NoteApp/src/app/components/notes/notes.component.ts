@@ -33,4 +33,8 @@ export class NotesComponent {
   newNote(): void {
     this._router.navigate(['/notes/create']);
   }
+
+  editNote(note: Note): void {
+    console.log(note)
+  }
 }

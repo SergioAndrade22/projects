@@ -1,10 +1,10 @@
 <form [formGroup]="noteForm" class="note">
     <input aria-label="Note title input field" formControlName="title" [id]="'input__title'+note?.id"
-           role="textbox" spellcheck="true" aria-multiline="false" class="note__title" 
+           role="textbox" spellcheck="true" aria-multiline="false" class="note__title" [readonly]="!isEditale"
            required maxlength="60" [placeholder]="_language.selectedLanguage.note__items.titlePlaceholder"/>
 
     <textarea aria-label="Note body input field" formControlName="body" [id]="'input__body'+note?.id" 
-              role="textbox" spellcheck="true" aria-multiline="true" class="note__body" 
+              role="textbox" spellcheck="true" aria-multiline="true" class="note__body" [readonly]="!isEditale"
               maxlength="1200" required [placeholder]="_language.selectedLanguage.note__items.bodyPlaceholder">
     </textarea>
 

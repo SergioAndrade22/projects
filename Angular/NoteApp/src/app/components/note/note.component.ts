@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, OnChanges } from '@angular/core';
+import { Component, Input, OnChanges } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { NotesService } from '../../services/notes.service';
 import { Note } from '../../core/models/note.model';
@@ -13,6 +13,7 @@ export class NoteComponent implements OnChanges {
   @Input() isCreate: boolean = false;
   @Input() isEdit: boolean = false;
   @Input() note: Note | undefined;
+  @Input() isEditale: boolean = true;
 
   noteForm = new FormGroup({
     title: new FormControl(''),
