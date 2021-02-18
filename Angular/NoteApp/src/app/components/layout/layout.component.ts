@@ -9,10 +9,12 @@ import { Language } from '../../../languages/language.service';
 })
 export class LayoutComponent implements OnInit {
 
-  language: any = Language.english;
+  language: any;
   Language = Language;
 
-  constructor(public _language: Language) {}
+  constructor(public _language: Language) {
+    this.language = this._language.selectedLanguage;
+  }
 
   ngOnInit(): void {
   }

@@ -1,4 +1,5 @@
 export const Spanish = {
+    name: 'Español',
     home__header: 'Este es un clon de Google Keep, con él apunto a lo siguiente:',
     home__details: [
         'Mejorar mi habilidad con Angular 2+',

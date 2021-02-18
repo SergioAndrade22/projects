@@ -9,13 +9,9 @@
                         aria-roledescription="Let's you pick the desired language"
                         [placeholder]="'Language'"
                         [(ngModel)]="language" (selectionChange)="changeLanguage()">
-                <mat-option role="option" aria-roledescription="English language option"
-                            aria-label="English language" [value]="Language.english">
-                    English
-                </mat-option>
-                <mat-option role="option" aria-roledescription="Spanish language option"
-                            aria-label="Spanish language" [value]="Language.spanish">
-                    Spanish
+                <mat-option *ngFor="let lang of Language.languageList" role="option" [attr.aria-roledescription]="lang.name + ' language option'"
+                            aria-label="English language" [value]="lang">
+                    {{lang.name}}
                 </mat-option>
             </mat-select>
         </div>

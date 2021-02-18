@@ -4,10 +4,9 @@ import { Spanish } from './Spanish';
 
 @Injectable()
 export class Language {
-    static english = English;
-    static spanish = Spanish;
+    static languageList = [English, Spanish];
 
-    selectedLanguage = Language.english;
+    selectedLanguage = English;
 
     changeLanguage(lang: any) {
         this.selectedLanguage = lang;

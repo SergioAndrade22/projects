@@ -1,4 +1,5 @@
 export const English = {
+    name: 'English',
     home__header: 'This is a Google Keep clone project, with it I aim for the following:',
     home__details: [
         'Enhance my ability with Angular 2+',
