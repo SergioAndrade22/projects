@@ -7,7 +7,7 @@
     top: 0
     left: 0
     padding: .6rem 2rem .6rem
-    background-color: $color-primary
+    background-color: var(--color-primary)
     justify-content: space-between
     align-items: center
     font-size: 1.8rem
@@ -26,12 +26,12 @@
 
         padding: 2rem 2rem
         cursor: pointer
-        color: $font-color-dark
+        color: var(--font-color-dark)
         text-decoration: none
         
         &:hover,
         &:focus
-            outline: .6rem solid $color-secondary
+            outline: .6rem solid var(--color-secondary)
             outline-offset: -1.5rem
         
         
@@ -82,7 +82,7 @@
 .footer
     height: 6vh
     font-size: 1.8rem
-    background-color: $color-primary
+    background-color: var(--color-primary)
 
     &__info
         text-align: center
@@ -106,5 +106,5 @@
     max-width: fit-content !important
 
 .active
-    outline: .6rem solid $color-secondary
+    outline: .6rem solid var(--color-secondary)
     outline-offset: -1.5rem

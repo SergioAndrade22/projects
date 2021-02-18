@@ -3,8 +3,8 @@
 .note
     display: flex
     flex-direction: column
-    background-color: $color-primary
-    color: $font-color-light
+    background-color: var(--color-primary)
+    color: var(--font-color-light)
     width: 35vw
     height: 25rem
     margin: 1rem auto
@@ -37,9 +37,9 @@
         outline: none
         text-decoration: none
         border: $border-solid-small
-        background-color: $color-light
+        background-color: var(--color-light)
         font-weight: 700
-        color: $font-color-darker
+        color: var(--font-color-dark)er
         border-radius: 500rem
         width: fit-content
         padding: 0 1rem
@@ -51,7 +51,7 @@
             box-shadow: $box-shadow-small
 
         &:hover:disabled
-            color: $color-light
+            color: var(--color-light)
             cursor: not-allowed
 
         &--left
@@ -68,12 +68,12 @@
         &--create
             &:hover:enabled
                 background-color: $color-confirm
-                color: $font-color-darker
+                color: var(--font-color-dark)er
         
         &--delete
             &:hover:enabled
                 background-color: $color-alert
-                color: $font-color-darker
+                color: var(--font-color-dark)er
     
 .buttons-container
     display: flex

@@ -22,4 +22,8 @@ export class LayoutComponent implements OnInit {
   changeLanguage(): void {
     this._language.changeLanguage(this.language);
   }
+
+  theme(): void {
+    document.documentElement.setAttribute('theme', 'dark');
+  }
 }
