@@ -6,19 +6,24 @@
             </div>
     
             <mat-select id="languageSelector" [aria-label]="'Allows you to pick the desired language'"
+                        aria-roledescription="Let's you pick the desired language"
                         [placeholder]="'Language'"
                         [(ngModel)]="language" (selectionChange)="changeLanguage()">
-                <mat-option [value]="Language.english">
+                <mat-option role="option" aria-roledescription="English language option"
+                            aria-label="English language" [value]="Language.english">
                     English
                 </mat-option>
-                <mat-option [value]="Language.spanish">
+                <mat-option role="option" aria-roledescription="Spanish language option"
+                            aria-label="Spanish language" [value]="Language.spanish">
                     Spanish
                 </mat-option>
             </mat-select>
         </div>
     
         <div class="search">
-            <input id="search__input" aria-label="Search Bar" type="text" [placeholder]="_language.selectedLanguage.navbar__items.search" class="search__input">
+            <input id="search__input" aria-label="Search Bar" type="text" 
+                   [placeholder]="_language.selectedLanguage.navbar__items.search" 
+                   class="search__input">
     
             <button class="search__button" type="submit" aria-label="Search Button">
                 <i class="fas fa-search"></i>
@@ -27,19 +32,27 @@
     
         <ul class="nav__list">
             <li class="nav__item-container">
-                <a [routerLink]="['/home']" routerLinkActive="active" class="nav__item">{{_language.selectedLanguage.navbar__items.home}}</a>
+                <a [routerLink]="['/home']" routerLinkActive="active" class="nav__item">
+                    {{_language.selectedLanguage.navbar__items.home}}
+                </a>
             </li>
     
             <li class="nav__item-container">
-                <a href="#" class="nav__item">{{_language.selectedLanguage.navbar__items.about}}</a>
+                <a href="#" class="nav__item">
+                    {{_language.selectedLanguage.navbar__items.about}}
+                </a>
             </li>
     
             <li class="nav__item-container">
-                <a href="#" class="nav__item">{{_language.selectedLanguage.navbar__items.signUp}}</a>
+                <a href="#" class="nav__item">
+                    {{_language.selectedLanguage.navbar__items.signUp}}
+                </a>
             </li>
     
             <li class="nav__item-container">
-                <a href="#" class="nav__item">{{_language.selectedLanguage.navbar__items.signIn}}</a>
+                <a href="#" class="nav__item">
+                    {{_language.selectedLanguage.navbar__items.signIn}}
+                </a>
             </li>
         </ul>
     </nav>
