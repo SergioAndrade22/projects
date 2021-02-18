@@ -7,4 +7,27 @@ export const English = {
         'Gain a better understanding of NestJS and MySQL, the subjacent back-end technologies',
         'Add funcionality that, under my consideration, Keep is missing'
     ],
+    sidebar__items: {
+        create: 'Create new note',
+        view: 'All notes',
+        delete: 'Rubbish bin'
+    },
+    navbar__items: {
+        home: 'Home',
+        about: 'About',
+        signUp: 'Sign Up',
+        signIn: 'Sign In',
+        search: 'Search your notes'
+    },
+    note__items: {
+        titlePlaceholder: 'Note title here...',
+        bodyPlaceholder: 'Note body here...',
+        createLegend: 'Create',
+        deleteLegend: 'Delete'
+    },
+    notes__items: {
+        message: 'You have no notes, try creating one...',
+        messageDeleted: 'You have no deleted notes...',
+        buttonLegend: 'New note'
+    },
 }

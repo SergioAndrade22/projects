@@ -4,17 +4,17 @@
         <ng-container [ngSwitch]="(params | async)?.state">
             <div *ngSwitchCase="'active'" class="message__container">
                 <div class="message">
-                    YOU HAVE NO NOTES, TRY CREATING ONE...
+                    {{_language.selectedLanguage.notes__items.message}}
                 </div>
                 <button type="submit" aria-label="Creation confirm button"
                     (click)="newNote()"
                     class="message__btn message__btn--left message__btn--create">
-                    New Note
+                    {{_language.selectedLanguage.notes__items.buttonLegend}}
                     <i class="fas fa-arrow-right"></i>
                 </button>
             </div>
             <div *ngSwitchCase="'deleted'">
-                No Deleted Notes...
+                {{_language.selectedLanguage.notes__items.messageDeleted}}
             </div>
         </ng-container>
     </ng-container>

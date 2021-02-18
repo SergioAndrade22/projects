@@ -2,6 +2,7 @@ import { Component, OnInit, Input, OnChanges } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { NotesService } from '../../services/notes.service';
 import { Note } from '../../core/models/note.model';
+import { Language } from '../../../languages/language.service';
 
 @Component({
   selector: 'app-note',
@@ -18,7 +19,8 @@ export class NoteComponent implements OnChanges {
     body: new FormControl('')
   })
 
-  constructor(private _notes: NotesService) {}
+  constructor(private _notes: NotesService,
+              public _language: Language) {}
 
   ngOnChanges(): void {
     const input = document.getElementsByTagName('input')![0] as HTMLInputElement;

@@ -1,11 +1,11 @@
 <ul class="content__list">
     <li class="content__item" [routerLink]="['/notes/create']" routerLinkActive="selected">
         <i class="fas fa-plus"></i>
-        Create new note
+        {{_language.selectedLanguage.sidebar__items.create}}
     </li>
     <li class="content__item" [routerLink]="['/notes/view/active']" routerLinkActive="selected">
         <i class="fas fa-clipboard"></i>
-        View all notes
+        {{_language.selectedLanguage.sidebar__items.view}}
     </li>
     <li *ngFor="let cat of categories" class="content__item">
         <i class="fas fa-greater-than"></i>
@@ -13,6 +13,6 @@
     </li>
     <li class="content__item" [routerLink]="['/notes/view/deleted']" routerLinkActive="selected">
         <i class="fas fa-trash"></i>
-        Deleted
+        {{_language.selectedLanguage.sidebar__items.delete}}
     </li>
 </ul>

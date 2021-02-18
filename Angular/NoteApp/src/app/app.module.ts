@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { MatSelectModule } from '@angular/material/select';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,6 +14,8 @@ import { NotesComponent } from './components/notes/notes.component';
 import { NewNoteComponent } from './components/new-note/new-note.component';
 import { CategoriesService } from './services/categories.service';
 import { NotesService } from './services/notes.service';
+import { Language } from '../languages/language.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -29,11 +32,14 @@ import { NotesService } from './services/notes.service';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    MatSelectModule
   ],
   providers: [
     CategoriesService,
-    NotesService
+    NotesService,
+    Language
   ],
   bootstrap: [AppComponent]
 })

@@ -3,6 +3,7 @@ import { Note } from '../../core/models/note.model';
 import { NotesService } from '../../services/notes.service';
 import { Observable } from 'rxjs';
 import { ActivatedRoute, Router, Params } from '@angular/router';
+import { Language } from '../../../languages/language.service';
 
 @Component({
   selector: 'app-notes',
@@ -15,7 +16,8 @@ export class NotesComponent {
 
   constructor(private _notes: NotesService,
               private _activatedRoute: ActivatedRoute,
-              private _router: Router) {
+              private _router: Router,
+              public _language: Language) {
     this.params = this._activatedRoute.params;
     this.params.subscribe(params => {
       if (params.state === 'active')

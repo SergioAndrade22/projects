@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Spanish } from '../../../languages/Spanish';
-import { English } from '../../../languages/English';
+import { Language } from '../../../languages/language.service';
 
 @Component({
   selector: 'app-home',
@@ -9,16 +8,8 @@ import { English } from '../../../languages/English';
 })
 export class HomeComponent implements OnInit {
 
-  Language: any;
-
-  constructor() {
-    this.Language = Spanish;
-  }
+  constructor(public _language: Language) {}
 
   ngOnInit(): void {
-  }
-
-  english(){
-    this.Language = English;
   }
 }

@@ -1,13 +1,12 @@
 <div class="home-container">
     <h1 class="home__title">NoteKeep++</h1>
     <div class="home__body">
-        <p class="home__description">{{Language.home__header}}</p>
+        <p class="home__description">{{_language.selectedLanguage.home__header}}</p>
         <ul class="home__list">
-            <li class="home__item" *ngFor="let detail of Language.home__details">
+            <li class="home__item" *ngFor="let detail of _language.selectedLanguage.home__details">
                 <i class="fas fa-caret-right home__item-icon"></i>
                 {{detail}}
             </li>
         </ul>
     </div>
-    <button (click)="english()" mat-button>Change to English</button>
 </div>
