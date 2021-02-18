@@ -9,7 +9,7 @@ export const English = {
         'Add funcionality that, under my consideration, Keep is missing'
     ],
     sidebar__items: {
-        create: 'Create new note',
+        create: 'Create a note',
         view: 'All notes',
         delete: 'Rubbish bin'
     },
@@ -24,8 +24,8 @@ export const English = {
         titlePlaceholder: 'Note title here...',
         bodyPlaceholder: 'Note body here...',
         createLegend: 'Create',
-        deleteLegend: 'Delete',
-        permaDeleteLegend: 'Delete Permanently'
+        deleteLegend: 'To rubbish',
+        permaDeleteLegend: 'Delete'
     },
     notes__items: {
         message: 'You have no notes, try creating one...',
