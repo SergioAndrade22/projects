@@ -20,6 +20,8 @@ export class LayoutComponent {
 
   changeLanguage(): void {
     this._language.changeLanguage(this.language);
+    this._cookies.delete('language');
+    this._cookies.set('language', JSON.stringify(this.language));
   }
 
   theme(): void {
