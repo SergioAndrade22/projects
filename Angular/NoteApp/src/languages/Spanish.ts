@@ -23,7 +23,7 @@ export const Spanish = {
     note__items: {
         titlePlaceholder: 'El título aquí...',
         bodyPlaceholder: 'El cuerpo aquí...',
-        createLegend: 'Crear',
+        createLegend: 'Guardar',
         deleteLegend: 'A la papelera',
         permaDeleteLegend: 'Eliminar'
     },

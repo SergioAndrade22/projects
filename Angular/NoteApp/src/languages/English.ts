@@ -23,7 +23,7 @@ export const English = {
     note__items: {
         titlePlaceholder: 'Note title here...',
         bodyPlaceholder: 'Note body here...',
-        createLegend: 'Create',
+        createLegend: 'Save',
         deleteLegend: 'To rubbish',
         permaDeleteLegend: 'Delete'
     },
