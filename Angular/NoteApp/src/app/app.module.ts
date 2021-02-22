@@ -18,6 +18,7 @@ import { CategoriesService } from './services/categories.service';
 import { NotesService } from './services/notes.service';
 import { Language } from '../languages/language.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CookiesService } from './services/cookies.service';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   ],
   providers: [
     CookieService,
+    CookiesService,
     CategoriesService,
     NotesService,
     Language

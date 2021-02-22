@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CookieService } from 'ngx-cookie-service';
-import { Language } from '../languages/language.service';
+import { CookiesService } from './services/cookies.service';
 
 @Component({
   selector: 'app-root',
@@ -10,15 +9,10 @@ import { Language } from '../languages/language.service';
 export class AppComponent implements OnInit{
   title = 'NoteKeep++';
 
-  constructor(private _cookies: CookieService,
-              private _language: Language) {}
+  constructor(private _cookies: CookiesService) {}
 
   ngOnInit() {
-    const theme = this._cookies.get('theme');
-    if (theme)
-      document.documentElement.setAttribute('theme', theme);
-    const lang = this._cookies.get('language');
-    if (lang)
-      this._language.changeLanguage(JSON.parse(lang));
+    this._cookies.loadLanguage();
+    this._cookies.loadTheme();
   }
 }
