@@ -16,6 +16,15 @@ export class NoteComponent implements OnChanges {
   @Input() note: Note | undefined;
   @Input() isEditale: boolean = true;
 
+  noteColorPalette = {
+    'background-color': 'var(--color-primary)',
+    'color': 'var(--font-color-light)'
+  }
+
+  changeBackgroundColor = (color: string) => this.noteColorPalette['background-color'] = color;
+  
+  changeTextColor = (color: string) => this.noteColorPalette['color'] = color;
+
   noteForm = new FormGroup({
     title: new FormControl(''),
     body: new FormControl('')
@@ -44,7 +53,6 @@ export class NoteComponent implements OnChanges {
       this._notes.update(this.note.id, this.noteForm.value).subscribe();
       this._router.navigate(['notes/view/active']);
     }
-    
   }
 
   deleteNote(): void {
