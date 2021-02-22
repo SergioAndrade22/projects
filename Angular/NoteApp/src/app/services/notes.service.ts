@@ -36,11 +36,11 @@ export class NotesService {
     return this._http.put(`${baseURL}/notes/${id}`, note) as Observable<Note>;
   }
 
-  remove(id: number): Observable<Note> {
+  delete(id: number): Observable<Note> {
     return this._http.delete(`${baseURL}/notes/${id}`) as Observable<Note>;
   }
 
-  permaRemove(id: number): Observable<Note> {
+  permaDelete(id: number): Observable<Note> {
     return this._http.delete(`${baseURL}/notes/deleted/${id}`) as Observable<Note>;
   }
 }
