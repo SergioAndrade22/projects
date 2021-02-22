@@ -36,7 +36,7 @@ export class NoteComponent implements OnChanges {
   }
 
   saveNote(): void {
-    this._notes.create(this.noteForm.value).subscribe((ret) => console.log(ret));
+    this._notes.create(this.noteForm.value).subscribe();
   }
 
   deleteNote(): void {
