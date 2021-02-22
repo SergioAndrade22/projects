@@ -1,22 +1,4 @@
 <div class="notes-container">
     <app-note [isEdit]="true" [isEditale]="false" *ngFor="let note of (notes | async)" 
               [id]="'note:'+note.id" [note]="note" (click)="editNote(note)"></app-note>
-    <ng-container *ngIf="((notes | async)?.length === 0)">
-        <ng-container [ngSwitch]="(params | async)?.state">
-            <div *ngSwitchCase="'active'" class="message__container">
-                <div class="message">
-                    {{_language.selectedLanguage.notes__items.message}}
-                </div>
-                <button type="submit" aria-label="Creation confirm button"
-                    (click)="newNote()"
-                    class="message__btn message__btn--left message__btn--create">
-                    {{_language.selectedLanguage.notes__items.buttonLegend}}
-                    <i class="fas fa-arrow-right"></i>
-                </button>
-            </div>
-            <div *ngSwitchCase="'deleted'">
-                {{_language.selectedLanguage.notes__items.messageDeleted}}
-            </div>
-        </ng-container>
-    </ng-container>
 </div>
