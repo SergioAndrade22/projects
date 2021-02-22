@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { NotesService } from '../../services/notes.service';
 import { ActivatedRoute } from '@angular/router';
 import { Note } from '../../core/models/note.model';
@@ -8,7 +8,7 @@ import { Note } from '../../core/models/note.model';
   templateUrl: './new-note.component.html',
   styleUrls: ['./new-note.component.sass']
 })
-export class NewNoteComponent implements OnInit {
+export class NewNoteComponent {
 
   note: Note | undefined;
 
@@ -20,8 +20,4 @@ export class NewNoteComponent implements OnInit {
         this._notes.find(params.id).subscribe(note => this.note = note);
     });
   }
-
-  ngOnInit(): void {
-  }
-
 }

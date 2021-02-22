@@ -1,6 +1,4 @@
-import { Component, ViewEncapsulation, OnInit } from '@angular/core';
-import { Language } from '../../../languages/language.service';
-import { CookiesService } from 'src/app/services/cookies.service';
+import { Component, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'app-layout',

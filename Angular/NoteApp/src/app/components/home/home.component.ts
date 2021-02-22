@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Language } from '../../../languages/language.service';
 
 @Component({
@@ -6,10 +6,7 @@ import { Language } from '../../../languages/language.service';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.sass']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent {
 
   constructor(public _language: Language) {}
-
-  ngOnInit(): void {
-  }
 }

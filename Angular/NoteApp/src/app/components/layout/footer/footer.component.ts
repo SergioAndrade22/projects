@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { CookiesService } from '../../../services/cookies.service';
 
 @Component({
@@ -6,12 +6,9 @@ import { CookiesService } from '../../../services/cookies.service';
   templateUrl: './footer.component.html',
   styleUrls: ['./footer.component.sass']
 })
-export class FooterComponent implements OnInit {
+export class FooterComponent {
 
   constructor(private _cookies: CookiesService) { }
-
-  ngOnInit(): void {
-  }
 
   theme(): void {
     const currTheme = document.documentElement.getAttribute('theme');    

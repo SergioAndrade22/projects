@@ -30,11 +30,7 @@ export class NotesComponent {
     });
   }
 
-  newNote(): void {
-    this._router.navigate(['/notes/create']);
-  }
+  newNote = () => this._router.navigate(['/notes/create']);
 
-  editNote(note: Note): void {
-    this._router.navigate(['/notes/edit', note.id])
-  }
+  editNote = (note: Note) => this._router.navigate(['/notes/edit', note.id]);
 }
