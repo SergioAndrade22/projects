@@ -19,6 +19,8 @@ import { NotesService } from './services/notes.service';
 import { Language } from '../languages/language.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CookiesService } from './services/cookies.service';
+import { HeaderComponent } from './components/layout/header/header.component';
+import { FooterComponent } from './components/layout/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,9 @@ import { CookiesService } from './services/cookies.service';
     NoteComponent,
     SideMenuComponent,
     NotesComponent,
-    NewNoteComponent
+    NewNoteComponent,
+    HeaderComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

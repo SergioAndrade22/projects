@@ -1,0 +1,84 @@
+.nav
+    width: 100%
+    height: 6vh
+    display: flex
+    top: 0
+    left: 0
+    padding: .6rem 2rem .6rem
+    background-color: var(--color-primary)
+    justify-content: space-between
+    align-items: center
+    font-size: 1.8rem
+
+    &__list
+        list-style-type: none
+        display: flex
+        justify-content: space-evenly
+    
+    &__item
+        &-container
+            transition: all .2s cubic-bezier(.93,-0.01,.71,.46)
+
+            &:hover
+                transform: scale(1.2)
+
+        padding: 2rem 2rem
+        cursor: pointer
+        color: var(--font-color-dark)
+        text-decoration: none
+        
+        &:hover,
+        &:focus
+            outline: .6rem solid var(--color-secondary)
+            outline-offset: -1.5rem
+         
+.logo
+    &-container
+        cursor: pointer
+        transition: all .2s linear
+
+        &:hover
+            transform: scale(1.3)
+
+        &:focus
+            outline: none
+            border: none
+
+    display: inline-block
+
+    &--small
+        width: 4rem
+        height: 4rem
+
+.search
+    display: flex
+    width: 30%
+    height: 50%
+    justify-content: center
+    background-color: white
+    border-radius: 1rem
+    padding: .2rem
+
+    &__input
+        width: 85%
+        padding-left: .2rem
+        margin-left: 1rem
+        outline: none
+        border: none
+
+    &__button
+        margin-left: .4rem
+        margin-right: .1rem
+        margin-top: .15rem
+        font-size: 1.8rem
+        outline: none
+        border: none
+        background: none
+        cursor: pointer
+
+.mat-select-value
+    max-width: fit-content !important
+
+.active
+    outline: .6rem solid var(--color-secondary)
+    outline-offset: -1.5rem 
