@@ -3,6 +3,7 @@ import { FormGroup, FormControl } from '@angular/forms';
 import { NotesService } from '../../services/notes.service';
 import { Note } from '../../core/models/note.model';
 import { Language } from '../../../languages/language.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-note',
@@ -21,6 +22,7 @@ export class NoteComponent implements OnChanges {
   })
 
   constructor(private _notes: NotesService,
+              private _router: Router,
               public _language: Language) {}
 
   ngOnChanges(): void {
@@ -36,7 +38,13 @@ export class NoteComponent implements OnChanges {
   }
 
   saveNote(): void {
-    this._notes.create(this.noteForm.value).subscribe();
+    if (this.note === undefined)
+      this._notes.create(this.noteForm.value).subscribe();
+    else{
+      this._notes.update(this.note.id, this.noteForm.value).subscribe();
+      this._router.navigate(['notes/view/active']);
+    }
+    
   }
 
   deleteNote(): void {
