@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
 })
 export class NoteComponent implements OnChanges {
   @Input() isCreate: boolean = false;
-  @Input() isEdit: boolean = false;
+  @Input() isView: boolean = false;
   @Input() note: Note | undefined;
   @Input() isEditale: boolean = true;
 
@@ -36,12 +36,12 @@ export class NoteComponent implements OnChanges {
 
   ngOnChanges(): void {
     const input = document.getElementsByTagName('input')![0] as HTMLInputElement;
-    input.setAttribute('contenteditable', this.isEdit.toString());
+    input.setAttribute('contenteditable', this.isView.toString());
     if (this.note)
       this.noteForm.controls['title'].setValue(this.note.title);
 
     const textArea = document.getElementsByTagName('textarea')![0] as HTMLTextAreaElement;
-    textArea.setAttribute('contenteditable', this.isEdit.toString());
+    textArea.setAttribute('contenteditable', this.isView.toString());
     if (this.note)
       this.noteForm.controls['body'].setValue(this.note.body);
   }

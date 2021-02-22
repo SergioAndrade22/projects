@@ -1,4 +1,4 @@
 <div class="notes-container">
-    <app-note [isEdit]="true" [isEditale]="false" *ngFor="let note of (notes | async)" 
+    <app-note [isView]="true" [isEditale]="false" *ngFor="let note of (notes | async)" 
               [id]="'note:'+note.id" [note]="note" (click)="editNote(note)"></app-note>
 </div>

@@ -22,22 +22,24 @@
             {{_language.selectedLanguage.note__items.createLegend}}
         </button>
         
-        <button [hidden]="!isEdit || note!.deleted === 1" [disabled]="!isEdit || noteForm.invalid" type="submit" 
+        <button [hidden]="!isView || note!.deleted === 1" [disabled]="!isView || noteForm.invalid" type="submit" 
                 aria-label="Deletion button" (click)="deleteNote()" 
                 class="note__btn note__btn--right note__btn--delete">
             <i class="fas fa-eraser"></i>
             {{_language.selectedLanguage.note__items.deleteLegend}}
         </button>
     
-        <button [hidden]="!isEdit || note!.deleted === 0" [disabled]="!isEdit || noteForm.invalid" type="submit" 
+        <button [hidden]="!isView || note!.deleted === 0" [disabled]="!isView || noteForm.invalid" type="submit" 
                 aria-label="Permanent deletion button" (click)="permanentDelete()" 
                 class="note__btn note__btn--center note__btn--delete">
             <i class="fas fa-eraser"></i>
             {{_language.selectedLanguage.note__items.permaDeleteLegend}}
         </button>
-        <label [for]="colorPickerBackground">Background:</label>
-        <input style="margin-right: 2rem; width: 10%;" type="color" (change)="changeBackgroundColor(colorPickerBackground.value)" #colorPickerBackground/>
-        <label [for]="colorPickerText">Text:</label>
-        <input style="margin-right: 2rem; width: 10%;" type="color" (change)="changeTextColor(colorPickerText.value)" #colorPickerText/>
+
+        <label [hidden]="!isCreate" [for]="colorPickerBackground">Background:</label>
+        <input class="note__color-picker" [hidden]="!isCreate" type="color" (change)="changeBackgroundColor(colorPickerBackground.value)" #colorPickerBackground/>
+
+        <label [hidden]="!isCreate" [for]="colorPickerText">Text:</label>
+        <input class="note__color-picker" [hidden]="!isCreate" type="color" (change)="changeTextColor(colorPickerText.value)" #colorPickerText/>
     </div>
 </form>
