@@ -32,6 +32,7 @@ export class NotesService {
 
   update(id: number, note: NoteDto): Observable<Note> {
     note.updated = new Date();
+    note.deleted = 0;
     return this._http.put(`${baseURL}/notes/${id}`, note) as Observable<Note>;
   }
 
