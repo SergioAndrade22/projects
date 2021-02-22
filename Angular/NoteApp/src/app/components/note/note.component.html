@@ -22,7 +22,7 @@
             {{_language.selectedLanguage.note__items.createLegend}}
         </button>
         
-        <button [hidden]="!isEdit || note!.deleted === 1    " [disabled]="!isEdit || noteForm.invalid" type="submit" 
+        <button [hidden]="!isEdit || note!.deleted === 1" [disabled]="!isEdit || noteForm.invalid" type="submit" 
                 aria-label="Deletion button" (click)="deleteNote()" 
                 class="note__btn note__btn--right note__btn--delete">
             <i class="fas fa-eraser"></i>

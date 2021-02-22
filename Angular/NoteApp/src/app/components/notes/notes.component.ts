@@ -35,6 +35,6 @@ export class NotesComponent {
   }
 
   editNote(note: Note): void {
-    console.log(note)
+    this._router.navigate(['/notes/edit', note.id])
   }
 }
