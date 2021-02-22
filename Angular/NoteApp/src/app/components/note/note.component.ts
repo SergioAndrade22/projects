@@ -18,7 +18,7 @@ export class NoteComponent implements OnChanges {
 
   noteColorPalette = {
     'background-color': 'var(--color-primary)',
-    'color': 'var(--font-color-light)'
+    'color': 'var(--font-color-darker)'
   }
 
   changeBackgroundColor = (color: string) => this.noteColorPalette['background-color'] = color;
