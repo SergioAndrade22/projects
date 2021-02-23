@@ -4,3 +4,9 @@
 | id    | int(11)     | NO   | PRI | NULL    | auto_increment |
 | name  | varchar(16) | YES  |     | NULL    |                |
 +-------+-------------+------+-----+---------+----------------+
+
+create table category(
+    id int auto_increment,
+    name varchar(16),
+    primary key (id)
+)

@@ -1,10 +1,24 @@
-+---------+---------------+------+-----+---------+----------------+
-| Field   | Type          | Null | Key | Default | Extra          |
-+---------+---------------+------+-----+---------+----------------+
-| id      | int(11)       | NO   | PRI | NULL    | auto_increment |
-| title   | varchar(60)   | YES  |     | NULL    |                |
-| body    | varchar(1200) | YES  |     | NULL    |                |
-| created | date          | YES  |     | NULL    |                |
-| updated | date          | YES  |     | NULL    |                |
-| deleted | tinyint(4)    | YES  |     | NULL    |                |
-+---------+---------------+------+-----+---------+----------------+
++----------+---------------+------+-----+---------+----------------+
+| Field    | Type          | Null | Key | Default | Extra          |
++----------+---------------+------+-----+---------+----------------+
+| id       | int(11)       | NO   | PRI | NULL    | auto_increment |
+| title    | varchar(60)   | YES  |     | NULL    |                |
+| body     | varchar(1200) | YES  |     | NULL    |                |
+| created  | date          | YES  |     | NULL    |                |
+| updated  | date          | YES  |     | NULL    |                |
+| deleted  | tinyint(4)    | YES  |     | NULL    |                |
+| bgcolor  | varchar(9)    | YES  |     | NULL    |                |
+| txtcolor | varchar(9)    | YES  |     | NULL    |                |
++----------+---------------+------+-----+---------+----------------+
+
+create table note (
+    id int auto_increment,
+    title varchar(60),
+    body varchar(1200),
+    created date,
+    updated date,
+    deleted tinyint(4),
+    bgcolor varchar(9),
+    txtcolor varchar(9),
+    primary key (id)
+)
