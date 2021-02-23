@@ -4,4 +4,6 @@ export class NoteDto {
   body: string;
   created: Date;
   updated: Date;
+  bgcolor: string;
+  txtcolor: string;
 }

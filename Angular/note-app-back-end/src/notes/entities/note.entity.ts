@@ -24,4 +24,10 @@ export class Note {
 
   @Column()
   deleted: number;
+
+  @Column()
+  bgcolor: string;
+
+  @Column()
+  txtcolor: string;
 }
