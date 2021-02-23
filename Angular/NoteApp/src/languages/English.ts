@@ -32,4 +32,20 @@ export const English = {
         messageDeleted: 'You have no deleted notes...',
         buttonLegend: 'New note'
     },
+    dialog: {
+        save: {
+            title: 'Confirm changes',
+            body: 'Do you want to save changes?'
+        },
+        delete: {
+            title: 'Confirm deletion',
+            body: 'Do you want to send this note to rubbish bin?'
+        },
+        permaDelete: {
+            title: 'Confirm permanent deletion',
+            body: 'Do you want to permanently delete this note?'
+        },
+        btnYes: 'Confirm',
+        btnNo: 'Cancel'
+    },
 }

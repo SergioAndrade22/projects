@@ -32,4 +32,20 @@ export const Spanish = {
         messageDeleted: 'No tiene notas borradas...',
         buttonLegend: 'Nueva nota'
     },
+    dialog: {
+        save: {
+            title: 'Confirmar cambios',
+            body: '¿Desea guardar los cambios?'
+        },
+        delete: {
+            title: 'Confirmar borrado',
+            body: '¿Desea enviar esta nota a la papelera?'
+        },
+        permaDelete: {
+            title: 'Confirm permanent deletion',
+            body: '¿Desea eliminar esta nota permanentemente?'
+        },
+        btnYes: 'Confirmar',
+        btnNo: 'Cancelar'
+    },
 }
