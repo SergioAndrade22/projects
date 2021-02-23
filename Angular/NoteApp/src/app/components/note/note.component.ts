@@ -4,6 +4,8 @@ import { NotesService } from '../../services/notes.service';
 import { Note, NoteDto } from '../../core/models/note.model';
 import { Language } from '../../../languages/language.service';
 import { Router } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
+import { YesNoDialogComponent } from '../../shared/components/yes-no-dialog/yes-no-dialog.component';
 
 @Component({
   selector: 'app-note',
@@ -28,7 +30,8 @@ export class NoteComponent implements OnChanges {
 
   constructor(private _notes: NotesService,
               private _router: Router,
-              public _language: Language) {}
+              public _language: Language,
+              public dialog: MatDialog,) {}
 
   ngOnChanges(): void {
     const input = document.getElementsByTagName('input')![0] as HTMLInputElement;
@@ -52,23 +55,64 @@ export class NoteComponent implements OnChanges {
   }
 
   saveNote(): void {
-    const noteDto = this.getDto();
-    if (this.note === undefined)
-      this._notes.create(noteDto).subscribe();
-    else{
-      this._notes.update(this.note.id, noteDto).subscribe();
-      this._router.navigate(['notes/view/active']);
-    }
+    const dialogRef = this.dialog.open(YesNoDialogComponent, {
+      width: '26rem',
+      height: '18rem',
+      data: {
+        text: this._language.selectedLanguage.dialog.save,
+        btnNo: this._language.selectedLanguage.dialog.btnNo,
+        btnYes: this._language.selectedLanguage.dialog.btnYes
+      }
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      if (result){
+        const noteDto = this.getDto();
+        if (this.note === undefined){
+          this._notes.create(noteDto).subscribe();
+          location.reload();
+        }
+        else{
+          this._notes.update(this.note.id, noteDto).subscribe();
+          this._router.navigate(['notes/view/active']);
+        }
+      }
+    });
   }
 
   deleteNote(): void {
-    this._notes.delete(this.note!.id).subscribe();
-    location.reload()
+    const dialogRef = this.dialog.open(YesNoDialogComponent, {
+      width: '26rem',
+      height: '18rem',
+      data: {
+        text: this._language.selectedLanguage.dialog.delete,
+        btnNo: this._language.selectedLanguage.dialog.btnNo,
+        btnYes: this._language.selectedLanguage.dialog.btnYes
+      }
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      if (result){
+        this._notes.delete(this.note!.id).subscribe();
+        location.reload();
+      }
+    });
   }
 
   permanentDelete(): void {
-    this._notes.permaDelete(this.note!.id).subscribe();
-    location.reload();
+    const dialogRef = this.dialog.open(YesNoDialogComponent, {
+      width: '26rem',
+      height: '18rem',
+      data: {
+        text: this._language.selectedLanguage.dialog.permaDelete,
+        btnNo: this._language.selectedLanguage.dialog.btnNo,
+        btnYes: this._language.selectedLanguage.dialog.btnYes
+      }
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      if (result){
+        this._notes.permaDelete(this.note!.id).subscribe();
+        location.reload();
+      }
+    });
   }
 
   changeBackgroundColor = (color: string) => this.noteColorPalette['background-color'] = color;
