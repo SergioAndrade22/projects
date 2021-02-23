@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { MatSelectModule } from '@angular/material/select';
+import { MatDialogModule } from '@angular/material/dialog';
 
 import { CookieService } from 'ngx-cookie-service';
 
@@ -21,6 +22,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CookiesService } from './services/cookies.service';
 import { HeaderComponent } from './components/layout/header/header.component';
 import { FooterComponent } from './components/layout/footer/footer.component';
+import { YesNoDialogComponent } from './shared/components/yes-no-dialog/yes-no-dialog.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,8 @@ import { FooterComponent } from './components/layout/footer/footer.component';
     NotesComponent,
     NewNoteComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    YesNoDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +44,8 @@ import { FooterComponent } from './components/layout/footer/footer.component';
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    MatSelectModule
+    MatSelectModule,
+    MatDialogModule
   ],
   providers: [
     CookieService,

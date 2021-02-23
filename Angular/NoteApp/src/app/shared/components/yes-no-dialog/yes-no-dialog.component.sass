@@ -1,0 +1,26 @@
+@import '../../../../sass/variables'
+
+.container
+    display: flex
+    justify-content: space-between
+
+.btn
+    width: fit-content
+    height: fit-content
+    padding: .6rem
+    border-radius: 500rem
+    outline: none
+    cursor: pointer
+
+    &:hover
+        transform: scale(1.05)
+        box-shadow: $box-shadow-small
+
+    &--confirm:hover
+        background-color: $color-confirm
+        color: var(--font-color-darker)
+
+    &--cancel:hover
+        background-color: $color-alert
+        color: var(--font-color-darker)
+        
