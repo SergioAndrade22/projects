@@ -1,11 +1,11 @@
 @import '../../../sass/variables'
 
 .notes-container
-    display: grid
-    grid-template-columns: repeat(auto-fill, minmax(35vw, 1fr))
+    display: flex
+    flex-wrap: wrap
     justify-content: space-evenly
-    overflow-y: auto
-    padding-left: 1rem
+    max-height: 100%
+    overflow: auto
 
 .message
     &__container
