@@ -1,7 +1,7 @@
 import { Component, Input, OnChanges } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { NotesService } from '../../services/notes.service';
-import { Note } from '../../core/models/note.model';
+import { Note, NoteDto } from '../../core/models/note.model';
 import { Language } from '../../../languages/language.service';
 import { Router } from '@angular/router';
 
@@ -21,10 +21,6 @@ export class NoteComponent implements OnChanges {
     'color': 'var(--font-color-darker)'
   }
 
-  changeBackgroundColor = (color: string) => this.noteColorPalette['background-color'] = color;
-  
-  changeTextColor = (color: string) => this.noteColorPalette['color'] = color;
-
   noteForm = new FormGroup({
     title: new FormControl(''),
     body: new FormControl('')
@@ -37,20 +33,30 @@ export class NoteComponent implements OnChanges {
   ngOnChanges(): void {
     const input = document.getElementsByTagName('input')![0] as HTMLInputElement;
     input.setAttribute('contenteditable', this.isView.toString());
-    if (this.note)
-      this.noteForm.controls['title'].setValue(this.note.title);
-
+    
     const textArea = document.getElementsByTagName('textarea')![0] as HTMLTextAreaElement;
     textArea.setAttribute('contenteditable', this.isView.toString());
-    if (this.note)
+
+    if (this.note){
+      this.noteForm.controls['title'].setValue(this.note.title);  
       this.noteForm.controls['body'].setValue(this.note.body);
+      if (this.note.bgcolor){
+        this.noteColorPalette["background-color"] = this.note.bgcolor;
+        (document.getElementsByTagName('input')![2] as HTMLInputElement).value = this.note.bgcolor;
+      }
+      if (this.note.txtcolor !== undefined){
+        this.noteColorPalette["color"] = this.note.txtcolor;
+        (document.getElementsByTagName('input')![3] as HTMLInputElement).value = this.note.txtcolor;
+      }
+    }
   }
 
   saveNote(): void {
+    const noteDto = this.getDto();
     if (this.note === undefined)
-      this._notes.create(this.noteForm.value).subscribe();
+      this._notes.create(noteDto).subscribe();
     else{
-      this._notes.update(this.note.id, this.noteForm.value).subscribe();
+      this._notes.update(this.note.id, noteDto).subscribe();
       this._router.navigate(['notes/view/active']);
     }
   }
@@ -63,5 +69,18 @@ export class NoteComponent implements OnChanges {
   permanentDelete(): void {
     this._notes.permaDelete(this.note!.id).subscribe();
     location.reload();
+  }
+
+  changeBackgroundColor = (color: string) => this.noteColorPalette['background-color'] = color;
+  
+  changeTextColor = (color: string) => this.noteColorPalette['color'] = color;
+
+  private getDto(): NoteDto {
+    const noteDto = new NoteDto();
+    noteDto.title = this.noteForm.value.title;
+    noteDto.body = this.noteForm.value.body;
+    noteDto.bgcolor = this.noteColorPalette["background-color"] !== 'var(--color-primary)' ? this.noteColorPalette["background-color"] : undefined;
+    noteDto.txtcolor = this.noteColorPalette["color"] !== 'var(--font-color-darker)' ? this.noteColorPalette["color"] : undefined;
+    return noteDto;
   }
 }

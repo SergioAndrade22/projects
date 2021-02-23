@@ -36,10 +36,10 @@
             {{_language.selectedLanguage.note__items.permaDeleteLegend}}
         </button>
 
-        <label [hidden]="!isCreate" [for]="colorPickerBackground">Background:</label>
-        <input class="note__color-picker" [hidden]="!isCreate" type="color" (change)="changeBackgroundColor(colorPickerBackground.value)" #colorPickerBackground/>
+        <label [hidden]="!isCreate" for="colorPickerBackground">Background:</label>
+        <input [id]="'colorPickerBackground'+note?.id" class="note__color-picker" [hidden]="!isCreate" type="color" (change)="changeBackgroundColor(colorPickerBackground.value)" #colorPickerBackground/>
 
-        <label [hidden]="!isCreate" [for]="colorPickerText">Text:</label>
-        <input class="note__color-picker" [hidden]="!isCreate" type="color" (change)="changeTextColor(colorPickerText.value)" #colorPickerText/>
+        <label [hidden]="!isCreate" for="colorPickerText">Text:</label>
+        <input [id]="'colorPickerText'+note?.id" class="note__color-picker" [hidden]="!isCreate" type="color" (change)="changeTextColor(colorPickerText.value)" #colorPickerText/>
     </div>
 </form>
