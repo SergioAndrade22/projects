@@ -6,6 +6,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatDialogModule } from '@angular/material/dialog';
 
 import { CookieService } from 'ngx-cookie-service';
+import { QuillModule } from 'ngx-quill';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -45,7 +46,18 @@ import { YesNoDialogComponent } from './shared/components/yes-no-dialog/yes-no-d
     ReactiveFormsModule,
     BrowserAnimationsModule,
     MatSelectModule,
-    MatDialogModule
+    MatDialogModule,
+    QuillModule.forRoot({
+      modules: {
+        toolbar: [
+          [{ 'size': ['small', false, 'large', 'huge'] }],
+          ['bold', 'italic', 'underline', 'strike', { 'align': ['', 'center', 'right'] },],
+          [{ 'script': 'sub' }, { 'script': 'super' }, { 'indent': '-1' }, { 'indent': '+1' }, { 'direction': 'rtl' }],
+          [{ 'list': 'ordered' }, { 'list': 'bullet' }]
+        ]
+      },
+      theme: 'snow'
+    })
   ],
   providers: [
     CookieService,

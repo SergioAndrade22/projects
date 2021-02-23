@@ -6,13 +6,15 @@
            aria-autocomplete="none" autocomplete="off" spellcheck="true" 
            [readonly]="!isEditale" maxlength="60" required/>
 
-    <textarea formControlName="body" [id]="'input__body'+note?.id" class="note__body"
+    <quill-editor class="note__body" formControlName="body" [placeholder]="_language.selectedLanguage.note__items.bodyPlaceholder"></quill-editor>
+
+    <!-- <textarea formControlName="body" [id]="'input__body'+note?.id" class="note__body"
               role="textbox" aria-label="Note body input field" aria-multiline="true"
               [placeholder]="_language.selectedLanguage.note__items.bodyPlaceholder"
               [attr.aria-placeholder]="_language.selectedLanguage.note__items.bodyPlaceholder"
               aria-autocomplete="none" autocomplete="off" spellcheck="true"
               [readonly]="!isEditale" maxlength="1200" required>
-    </textarea>
+    </textarea> -->
 
     <div class="buttons-container">
         <button [hidden]="!isCreate" [disabled]="!isCreate || noteForm.invalid" type="submit" 

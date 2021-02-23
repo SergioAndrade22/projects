@@ -6,6 +6,7 @@ import { Language } from '../../../languages/language.service';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { YesNoDialogComponent } from '../../shared/components/yes-no-dialog/yes-no-dialog.component';
+import { EditorChangeContent, EditorChangeSelection } from 'ngx-quill';
 
 @Component({
   selector: 'app-note',
@@ -37,7 +38,7 @@ export class NoteComponent implements OnChanges {
     const input = document.getElementsByTagName('input')![0] as HTMLInputElement;
     input.setAttribute('contenteditable', this.isView.toString());
     
-    const textArea = document.getElementsByTagName('textarea')![0] as HTMLTextAreaElement;
+    const textArea = document.getElementsByClassName('note__body')![0] as HTMLTextAreaElement;
     textArea.setAttribute('contenteditable', this.isView.toString());
 
     if (this.note){
@@ -54,7 +55,7 @@ export class NoteComponent implements OnChanges {
     }
   }
 
-  saveNote(): void {
+  saveNote(): void {    
     const dialogRef = this.dialog.open(YesNoDialogComponent, {
       width: '26rem',
       height: '18rem',
