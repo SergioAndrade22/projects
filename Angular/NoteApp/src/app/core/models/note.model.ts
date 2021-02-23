@@ -7,6 +7,8 @@ export class Note {
     updated!: Date;
     categories!: Category[];
     deleted!: number;
+    bgcolor!: string;
+    txtcolor!: string;
 }
 
 export class NoteDto {
@@ -16,4 +18,6 @@ export class NoteDto {
     updated?: Date;
     categories?: Category[];
     deleted?: number;
+    bgcolor?: string;
+    txtcolor?: string;
 }
