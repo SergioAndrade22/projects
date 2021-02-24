@@ -60,13 +60,11 @@ export class NoteComponent implements OnChanges {
         this.noteColorPalette["background-color"] = this.note.bgcolor;
         (document.getElementsByTagName('input')![2] as HTMLInputElement).value = this.note.bgcolor;
       }
-      if (this.note.txtcolor !== undefined){
+      if (this.note.txtcolor){
         this.noteColorPalette["color"] = this.note.txtcolor;
         (document.getElementsByTagName('input')![3] as HTMLInputElement).value = this.note.txtcolor;
       }
     }
-    console.log(this.note);
-    
   }
 
   
