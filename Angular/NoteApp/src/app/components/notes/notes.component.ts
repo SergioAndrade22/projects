@@ -31,6 +31,4 @@ export class NotesComponent {
   }
 
   newNote = () => this._router.navigate(['/notes/create']);
-
-  editNote = (note: Note) => this._router.navigate(['/notes/edit', note.id]);
 }

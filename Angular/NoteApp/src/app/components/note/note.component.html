@@ -23,6 +23,11 @@
             <i class="fas fa-notes-medical"></i>
             {{_language.selectedLanguage.note__items.createLegend}}
         </button>
+
+        <button [hidden]="!isView" [disabled]="!isView || noteForm.invalid" type="submit"
+                aria-label="Update button" (click)="editNote()" class="note__btn">
+            Update
+        </button>
         
         <button [hidden]="!isView || note!.deleted === 1" [disabled]="!isView || noteForm.invalid" type="submit" 
                 aria-label="Deletion button" (click)="deleteNote()" 

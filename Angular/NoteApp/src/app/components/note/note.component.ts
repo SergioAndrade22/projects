@@ -55,6 +55,10 @@ export class NoteComponent implements OnChanges {
     }
   }
 
+  editNote() {
+    this._router.navigate(['/notes/edit', this.note?.id]);
+  }
+
   saveNote(): void {    
     const dialogRef = this.dialog.open(YesNoDialogComponent, {
       width: '26rem',
