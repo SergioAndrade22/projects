@@ -30,6 +30,10 @@ export class NotesService {
     return this._http.get(`${baseURL}/notes/${id}`) as Observable<Note>;
   }
 
+  findByCategory(id: number): Observable<Note[]> {
+    return this._http.get(`${baseURL}/notes/category/${id}`) as Observable<Note[]>;
+  }
+
   update(id: number, note: NoteDto): Observable<Note> {
     note.updated = new Date();
     note.deleted = 0;
