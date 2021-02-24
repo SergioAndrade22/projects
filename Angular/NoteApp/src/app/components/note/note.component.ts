@@ -1,13 +1,16 @@
 import { Component, Input, OnChanges } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
-import { NotesService } from '../../services/notes.service';
-import { Note, NoteDto } from '../../core/models/note.model';
-import { Language } from '../../../languages/language.service';
-import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
-import { YesNoDialogComponent } from '../../shared/components/yes-no-dialog/yes-no-dialog.component';
-import { EditorChangeContent, EditorChangeSelection } from 'ngx-quill';
+import { Router } from '@angular/router';
+
+import { Observable } from 'rxjs';
+
 import { YesNoDialogService } from '../../shared/services/yes-no-dialog.service';
+import { CategoriesService } from '../../services/categories.service';
+import { Language } from '../../../languages/language.service';
+import { Note, NoteDto } from '../../core/models/note.model';
+import { NotesService } from '../../services/notes.service';
+import { Category } from '../../core/models/category.model';
 
 @Component({
   selector: 'app-note',
@@ -20,6 +23,8 @@ export class NoteComponent implements OnChanges {
   @Input() note: Note | undefined;
   @Input() isEditale: boolean = true;
 
+  categoriesObs: Observable<Category[]>;
+
   noteColorPalette = {
     'background-color': 'var(--color-primary)',
     'color': 'var(--font-color-darker)'
@@ -27,14 +32,18 @@ export class NoteComponent implements OnChanges {
 
   noteForm = new FormGroup({
     title: new FormControl(''),
-    body: new FormControl('')
+    body: new FormControl(''),
+    categories: new FormControl([])
   })
 
   constructor(private _notes: NotesService,
               private _router: Router,
               private _dialog: YesNoDialogService,
+              private _categories: CategoriesService,
               public _language: Language,
-              public dialog: MatDialog,) {}
+              public dialog: MatDialog,) {
+    this.categoriesObs = this._categories.findAll();
+  }
 
   ngOnChanges(): void {
     const input = document.getElementsByTagName('input')![0] as HTMLInputElement;
@@ -46,6 +55,7 @@ export class NoteComponent implements OnChanges {
     if (this.note){
       this.noteForm.controls['title'].setValue(this.note.title);  
       this.noteForm.controls['body'].setValue(this.note.body);
+      this.noteForm.controls['categories'].setValue(this.note.categories);
       if (this.note.bgcolor){
         this.noteColorPalette["background-color"] = this.note.bgcolor;
         (document.getElementsByTagName('input')![2] as HTMLInputElement).value = this.note.bgcolor;
@@ -55,6 +65,8 @@ export class NoteComponent implements OnChanges {
         (document.getElementsByTagName('input')![3] as HTMLInputElement).value = this.note.txtcolor;
       }
     }
+    console.log(this.note);
+    
   }
 
   
@@ -65,6 +77,7 @@ export class NoteComponent implements OnChanges {
         const noteDto = new NoteDto();
         noteDto.title = this.noteForm.value.title;
         noteDto.body = this.noteForm.value.body;
+        noteDto.categories = this.noteForm.value.categories;
         noteDto.bgcolor = this.noteColorPalette["background-color"] !== 'var(--color-primary)' ? this.noteColorPalette["background-color"] : undefined;
         noteDto.txtcolor = this.noteColorPalette["color"] !== 'var(--font-color-darker)' ? this.noteColorPalette["color"] : undefined;
         if (this.note === undefined){
@@ -100,7 +113,7 @@ export class NoteComponent implements OnChanges {
   }
   
   editNote = () => this._router.navigate(['/notes/edit', this.note?.id]);
-  
+
   changeBackgroundColor = (color: string) => this.noteColorPalette['background-color'] = color;
   
   changeTextColor = (color: string) => this.noteColorPalette['color'] = color;

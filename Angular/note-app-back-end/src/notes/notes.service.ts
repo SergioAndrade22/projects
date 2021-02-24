@@ -18,15 +18,15 @@ export class NotesService {
   }
 
   findAll(): Promise<Note[]> {
-    return this.notesRepository.find({deleted: 0});
+    return this.notesRepository.find({where: 'deleted = 0', relations: ['categories']});
   }
 
   findOne(id: number): Promise<Note> {
-    return this.notesRepository.findOne(id);
+    return this.notesRepository.findOne(id, {relations: ['categories']});
   }
 
   findDeleted(): Promise<Note[]> {
-    return this.notesRepository.find({deleted: 1});
+    return this.notesRepository.find({where: 'deleted = 1', relations: ['categories']});
   }
 
   async update(id: number, noteDto: NoteDto): Promise<Note> {
