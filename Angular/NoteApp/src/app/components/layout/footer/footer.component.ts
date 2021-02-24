@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CookiesService } from '../../../services/cookies.service';
+import { Language } from '../../../../languages/language.service';
 
 @Component({
   selector: 'app-footer',
@@ -8,7 +9,8 @@ import { CookiesService } from '../../../services/cookies.service';
 })
 export class FooterComponent {
 
-  constructor(private _cookies: CookiesService) { }
+  constructor(private _cookies: CookiesService,
+              public _language: Language) { }
 
   theme(): void {
     const currTheme = document.documentElement.getAttribute('theme');    
