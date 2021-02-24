@@ -48,7 +48,7 @@
         <button [hidden]="!isView" [disabled]="!isView || noteForm.invalid" type="submit"
                 aria-label="Update button" (click)="editNote()" class="note__btn">
             <i class="fas fa-edit"></i>
-            Update
+            {{_language.selectedLanguage.note__items.updateLegend}}
         </button>
 
         <label [hidden]="!isCreate" for="colorPickerBackground">Background:</label>

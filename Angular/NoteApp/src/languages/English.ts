@@ -15,15 +15,20 @@ export const English = {
     },
     navbar__items: {
         home: 'Home',
+        languagePlaceholder: 'Language',
         about: 'About',
         signUp: 'Sign Up',
         signIn: 'Sign In',
         search: 'Search your notes'
     },
+    footer__items: {
+        theme: 'Change theme'
+    },
     note__items: {
         titlePlaceholder: 'Note title here...',
         bodyPlaceholder: 'Note body here...',
         createLegend: 'Save',
+        updateLegend: 'Update',
         deleteLegend: 'To rubbish',
         permaDeleteLegend: 'Delete'
     },

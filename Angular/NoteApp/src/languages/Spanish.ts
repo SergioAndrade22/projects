@@ -15,15 +15,20 @@ export const Spanish = {
     },
     navbar__items: {
         home: 'Inicio',
+        languagePlaceholder: 'Idioma',
         about: 'Sobre nosotros',
         signUp: 'Crear una cuenta',
         signIn: 'Iniciar sesión',
         search: 'Busca en tus notas'
     },
+    footer__items: {
+        theme: 'Cambiar tema'
+    },
     note__items: {
         titlePlaceholder: 'El título aquí...',
         bodyPlaceholder: 'El cuerpo aquí...',
         createLegend: 'Guardar',
+        updateLegend: 'Actualizar',
         deleteLegend: 'A la papelera',
         permaDeleteLegend: 'Eliminar'
     },
@@ -42,7 +47,7 @@ export const Spanish = {
             body: '¿Desea enviar esta nota a la papelera?'
         },
         permaDelete: {
-            title: 'Confirm permanent deletion',
+            title: 'Confirmar borrado permanente',
             body: '¿Desea eliminar esta nota permanentemente?'
         },
         btnYes: 'Confirmar',

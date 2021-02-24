@@ -7,7 +7,7 @@
     
             <mat-select id="languageSelector" [aria-label]="'Allows you to pick the desired language'"
                         aria-roledescription="Let's you pick the desired language"
-                        [placeholder]="'Language'" [compareWith]="compareObjects"
+                        [placeholder]="_language.selectedLanguage.navbar__items.languagePlaceholder" [compareWith]="compareObjects"
                         [(ngModel)]="language" (selectionChange)="changeLanguage()">
                 <mat-option *ngFor="let lang of Language.languageList" role="option" [attr.aria-roledescription]="lang.name + ' language option'"
                             aria-label="English language" [value]="lang">
