@@ -67,7 +67,10 @@ export class NoteComponent implements OnChanges {
     }
   }
 
-  
+  compareObjects(o1: any, o2: any): boolean {
+    return o1.name == o2.name;
+  }
+
   saveNote(): void {    
     const dialogRef = this._dialog.getDialog(this._language.selectedLanguage.dialog.save);
     dialogRef.afterClosed().subscribe(result => {
