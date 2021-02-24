@@ -13,8 +13,8 @@ export class YesNoDialogService {
 
   getDialog(text: {title:string, body: string}): MatDialogRef<YesNoDialogComponent> {
     return this.dialog.open(YesNoDialogComponent, {
-      width: '26rem',
-      height: '18rem',
+      width: '30rem',
+      height: '22rem',
       data: {
         text,
         btnNo: this._language.selectedLanguage.dialog.btnNo,
