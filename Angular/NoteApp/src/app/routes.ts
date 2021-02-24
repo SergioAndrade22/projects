@@ -8,5 +8,6 @@ export const ROUTES: Routes = [
     { path: 'home', component: HomeComponent },
     { path: 'notes/view/:state', component: NotesComponent},
     { path: 'notes/create', component: NewNoteComponent},
-    { path: 'notes/edit/:id', component: NewNoteComponent }
+    { path: 'notes/edit/:id', component: NewNoteComponent },
+    { path: 'categories/:name', component: NotesComponent }
 ];
