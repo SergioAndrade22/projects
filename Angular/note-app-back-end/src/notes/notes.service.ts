@@ -29,6 +29,10 @@ export class NotesService {
     return this.notesRepository.find({where: 'deleted = 1', relations: ['categories']});
   }
 
+  findByCategory(id: number): Promise<Note[]> {
+    return this.notesRepository.query(`select note.* from note, note_categories_category where note.id = note_categories_category.noteId and note_categories_category.categoryId=${id};`);
+  }
+
   async update(id: number, noteDto: NoteDto): Promise<Note> {
     let noteToSave = await this.notesRepository.findOne(id);
     noteToSave = {...noteToSave, ...noteDto};
@@ -42,8 +46,8 @@ export class NotesService {
   }
 
   async permaRemove(id: number): Promise<Note> {
-    const toRet = await this.notesRepository.findOne(id);
-    return this.notesRepository.delete(id)
+    const toRet = await this.notesRepository.findOne(id, {relations: ['categories']});
+    return this.notesRepository.remove(toRet)
               .then(() => toRet)
               .catch(() => null);
   }

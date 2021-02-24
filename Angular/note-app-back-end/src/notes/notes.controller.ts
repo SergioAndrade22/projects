@@ -27,6 +27,11 @@ export class NotesController {
     return this.notesService.findOne(+id);
   }
 
+  @Get('/category/:id')
+  findByCategory(@Param('id') id: string): Promise<Note[]> {
+    return this.notesService.findByCategory(+id);
+  }
+
   @Put(':id')
   update(@Param('id') id: string, @Body() updateNoteDto: NoteDto): Promise<Note> {
     return this.notesService.update(+id, updateNoteDto);
