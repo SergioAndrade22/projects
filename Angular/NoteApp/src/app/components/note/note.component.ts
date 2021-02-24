@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { YesNoDialogComponent } from '../../shared/components/yes-no-dialog/yes-no-dialog.component';
 import { EditorChangeContent, EditorChangeSelection } from 'ngx-quill';
+import { YesNoDialogService } from '../../shared/services/yes-no-dialog.service';
 
 @Component({
   selector: 'app-note',
@@ -31,6 +32,7 @@ export class NoteComponent implements OnChanges {
 
   constructor(private _notes: NotesService,
               private _router: Router,
+              private _dialog: YesNoDialogService,
               public _language: Language,
               public dialog: MatDialog,) {}
 
@@ -55,23 +57,16 @@ export class NoteComponent implements OnChanges {
     }
   }
 
-  editNote() {
-    this._router.navigate(['/notes/edit', this.note?.id]);
-  }
-
+  
   saveNote(): void {    
-    const dialogRef = this.dialog.open(YesNoDialogComponent, {
-      width: '26rem',
-      height: '18rem',
-      data: {
-        text: this._language.selectedLanguage.dialog.save,
-        btnNo: this._language.selectedLanguage.dialog.btnNo,
-        btnYes: this._language.selectedLanguage.dialog.btnYes
-      }
-    });
+    const dialogRef = this._dialog.getDialog(this._language.selectedLanguage.dialog.save);
     dialogRef.afterClosed().subscribe(result => {
       if (result){
-        const noteDto = this.getDto();
+        const noteDto = new NoteDto();
+        noteDto.title = this.noteForm.value.title;
+        noteDto.body = this.noteForm.value.body;
+        noteDto.bgcolor = this.noteColorPalette["background-color"] !== 'var(--color-primary)' ? this.noteColorPalette["background-color"] : undefined;
+        noteDto.txtcolor = this.noteColorPalette["color"] !== 'var(--font-color-darker)' ? this.noteColorPalette["color"] : undefined;
         if (this.note === undefined){
           this._notes.create(noteDto).subscribe();
           location.reload();
@@ -83,17 +78,9 @@ export class NoteComponent implements OnChanges {
       }
     });
   }
-
+  
   deleteNote(): void {
-    const dialogRef = this.dialog.open(YesNoDialogComponent, {
-      width: '26rem',
-      height: '18rem',
-      data: {
-        text: this._language.selectedLanguage.dialog.delete,
-        btnNo: this._language.selectedLanguage.dialog.btnNo,
-        btnYes: this._language.selectedLanguage.dialog.btnYes
-      }
-    });
+    const dialogRef = this._dialog.getDialog(this._language.selectedLanguage.dialog.delete);
     dialogRef.afterClosed().subscribe(result => {
       if (result){
         this._notes.delete(this.note!.id).subscribe();
@@ -101,17 +88,9 @@ export class NoteComponent implements OnChanges {
       }
     });
   }
-
+  
   permanentDelete(): void {
-    const dialogRef = this.dialog.open(YesNoDialogComponent, {
-      width: '26rem',
-      height: '18rem',
-      data: {
-        text: this._language.selectedLanguage.dialog.permaDelete,
-        btnNo: this._language.selectedLanguage.dialog.btnNo,
-        btnYes: this._language.selectedLanguage.dialog.btnYes
-      }
-    });
+    const dialogRef = this._dialog.getDialog(this._language.selectedLanguage.dialog.permaDelete);
     dialogRef.afterClosed().subscribe(result => {
       if (result){
         this._notes.permaDelete(this.note!.id).subscribe();
@@ -119,17 +98,10 @@ export class NoteComponent implements OnChanges {
       }
     });
   }
-
+  
+  editNote = () => this._router.navigate(['/notes/edit', this.note?.id]);
+  
   changeBackgroundColor = (color: string) => this.noteColorPalette['background-color'] = color;
   
   changeTextColor = (color: string) => this.noteColorPalette['color'] = color;
-
-  private getDto(): NoteDto {
-    const noteDto = new NoteDto();
-    noteDto.title = this.noteForm.value.title;
-    noteDto.body = this.noteForm.value.body;
-    noteDto.bgcolor = this.noteColorPalette["background-color"] !== 'var(--color-primary)' ? this.noteColorPalette["background-color"] : undefined;
-    noteDto.txtcolor = this.noteColorPalette["color"] !== 'var(--font-color-darker)' ? this.noteColorPalette["color"] : undefined;
-    return noteDto;
-  }
 }

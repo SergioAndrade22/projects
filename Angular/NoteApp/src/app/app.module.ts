@@ -24,6 +24,7 @@ import { CookiesService } from './services/cookies.service';
 import { HeaderComponent } from './components/layout/header/header.component';
 import { FooterComponent } from './components/layout/footer/footer.component';
 import { YesNoDialogComponent } from './shared/components/yes-no-dialog/yes-no-dialog.component';
+import { YesNoDialogService } from './shared/services/yes-no-dialog.service';
 
 @NgModule({
   declarations: [
@@ -64,7 +65,8 @@ import { YesNoDialogComponent } from './shared/components/yes-no-dialog/yes-no-d
     CookiesService,
     CategoriesService,
     NotesService,
-    Language
+    Language,
+    YesNoDialogService
   ],
   bootstrap: [AppComponent]
 })
