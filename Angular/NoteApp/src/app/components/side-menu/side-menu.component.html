@@ -7,7 +7,7 @@
         <i class="fas fa-clipboard"></i>
         {{_language.selectedLanguage.sidebar__items.view}}
     </li>
-    <li *ngFor="let cat of categories" class="content__item" [routerLink]="['categories/', cat.name]" [state]="{id: cat.id}" routerLinkActive="selected">
+    <li *ngFor="let cat of categories" class="content__item" [routerLink]="['categories/', cat.name+'-'+cat.id]" [state]="{id: cat.id}" routerLinkActive="selected">
         <i class="fas fa-greater-than"></i>
         {{cat.name}}
     </li>
