@@ -5,6 +5,7 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 import { MatSelectModule } from '@angular/material/select';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatListModule } from '@angular/material/list';
 
 import { CookieService } from 'ngx-cookie-service';
 import { QuillModule } from 'ngx-quill';
@@ -26,6 +27,7 @@ import { HeaderComponent } from './components/layout/header/header.component';
 import { FooterComponent } from './components/layout/footer/footer.component';
 import { YesNoDialogComponent } from './shared/components/yes-no-dialog/yes-no-dialog.component';
 import { YesNoDialogService } from './shared/services/yes-no-dialog.service';
+import { CategoriesComponent } from './components/categories/categories.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +40,8 @@ import { YesNoDialogService } from './shared/services/yes-no-dialog.service';
     NewNoteComponent,
     HeaderComponent,
     FooterComponent,
-    YesNoDialogComponent
+    YesNoDialogComponent,
+    CategoriesComponent
   ],
   imports: [
     BrowserModule,
@@ -49,6 +52,7 @@ import { YesNoDialogService } from './shared/services/yes-no-dialog.service';
     BrowserAnimationsModule,
     MatSelectModule,
     MatDialogModule,
+    MatListModule,
     QuillModule.forRoot({
       modules: {
         toolbar: [
