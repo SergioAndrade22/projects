@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Category } from 'src/app/core/models/category.model';
 import { CategoriesService } from '../../services/categories.service';
+import { Language } from '../../../languages/language.service';
 
 @Component({
   selector: 'app-categories',
@@ -12,7 +13,8 @@ export class CategoriesComponent {
 
   categories: Observable<Category[]>;
 
-  constructor(private _categories: CategoriesService) {
+  constructor(private _categories: CategoriesService,
+              public _language: Language) {
     this.categories = this._categories.findAll();
   }
 
