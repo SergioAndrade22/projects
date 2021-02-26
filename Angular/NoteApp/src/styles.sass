@@ -41,3 +41,36 @@ html
 
 .mat-list-base
     padding-top: 0 !important
+
+.btn
+    outline: none
+    text-decoration: none
+    text-align: center
+    border: $border-solid-small
+    background-color: var(--color-light)
+    font-weight: 700
+    color: var(--font-color-darker)
+    border-radius: 500rem
+    width: fit-content
+    padding: 0 1rem
+    cursor: pointer
+    transition: all .2s linear
+    display: flex
+    align-items: center
+
+    &:hover:enabled
+        transform: scale(1.1) translateY(-.5rem)
+        box-shadow: $box-shadow-small
+
+    &:hover:disabled
+        cursor: not-allowed
+
+    &--create
+        &:hover:enabled
+            background-color: $color-confirm
+            color: var(--font-color-darker)
+    
+    &--delete
+        &:hover:enabled
+            background-color: $color-alert
+            color: var(--font-color-darker)

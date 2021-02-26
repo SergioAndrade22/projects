@@ -8,7 +8,7 @@
                [readonly]="!isEditale" maxlength="60" required/>
             
         <button [hidden]="!isCreate" class="note__categories" matTooltip="Categories" (click)="select.open()">
-            <i class="fas fa-ellipsis-v"></i>
+            <i class="material-icons">more_vert</i>
     
             <mat-select class="categorySelect" formControlName="categories" multiple #select>
                 <mat-select-trigger></mat-select-trigger>
@@ -24,37 +24,45 @@
 
 
     <div class="buttons-container">
-        <button [hidden]="!isCreate" [disabled]="!isCreate || noteForm.invalid" type="submit" 
-                aria-label="Creation button" (click)="saveNote()" 
-                class="note__btn note__btn--left note__btn--create">
-            <i class="fas fa-plus-circle"></i>
-            {{_language.selectedLanguage.note__items.createLegend}}
-        </button>
-        
-        <button [hidden]="!isView || note!.deleted === 1" [disabled]="!isView || noteForm.invalid" type="submit" 
-            aria-label="Deletion button" (click)="deleteNote()" 
-            class="note__btn note__btn--right note__btn--delete">
-            <i class="fas fa-trash-alt"></i>
-            {{_language.selectedLanguage.note__items.deleteLegend}}
-        </button>
+        <ng-container *ngIf="isCreate">
+            <button [disabled]="noteForm.invalid" type="submit" 
+                    aria-label="Creation button" (click)="saveNote()" 
+                    class="btn btn--create">
+                <span class="material-icons">add_circle</span>
+                {{_language.selectedLanguage.note__items.createLegend}}
+            </button>
+
+            <label for="colorPickerBackground">Background:</label>
+            <input [id]="'colorPickerBackground'+note?.id" class="note__color-picker" type="color" 
+                   (change)="changeBackgroundColor(colorPickerBackground.value)" #colorPickerBackground/>
     
-        <button [hidden]="!isView || note!.deleted === 0" [disabled]="!isView || noteForm.invalid" type="submit" 
-            aria-label="Permanent deletion button" (click)="permanentDelete()" 
-            class="note__btn note__btn--center note__btn--delete">
-            <i class="fas fa-minus-circle"></i>
-            {{_language.selectedLanguage.note__items.permaDeleteLegend}}
-        </button>
+            <label for="colorPickerText">Text:</label>
+            <input [id]="'colorPickerText'+note?.id" class="note__color-picker" type="color" 
+                   (change)="changeTextColor(colorPickerText.value)" #colorPickerText/>
+        </ng-container>
+        
+        <ng-container *ngIf="isView">
+            <ng-container *ngIf="note!.deleted === 0; else elseButton">
+                <button type="submit" aria-label="Deletion button" 
+                        (click)="deleteNote()" class="btn btn--delete">
+                    <i class="material-icons">delete</i>
+                    {{_language.selectedLanguage.note__items.deleteLegend}}
+                </button>
+            </ng-container>
 
-        <button [hidden]="!isView" [disabled]="!isView || noteForm.invalid" type="submit"
-                aria-label="Update button" (click)="editNote()" class="note__btn">
-            <i class="fas fa-edit"></i>
-            {{_language.selectedLanguage.note__items.updateLegend}}
-        </button>
-
-        <label [hidden]="!isCreate" for="colorPickerBackground">Background:</label>
-        <input [id]="'colorPickerBackground'+note?.id" class="note__color-picker" [hidden]="!isCreate" type="color" (change)="changeBackgroundColor(colorPickerBackground.value)" #colorPickerBackground/>
-
-        <label [hidden]="!isCreate" for="colorPickerText">Text:</label>
-        <input [id]="'colorPickerText'+note?.id" class="note__color-picker" [hidden]="!isCreate" type="color" (change)="changeTextColor(colorPickerText.value)" #colorPickerText/>
+            <ng-template #elseButton>
+                <button type="submit" aria-label="Permanent deletion button"
+                        (click)="permanentDelete()" class="btn btn--delete">
+                    <i class="material-icons">remove_circle</i>
+                    {{_language.selectedLanguage.note__items.permaDeleteLegend}}
+                </button>
+            </ng-template>
+    
+            <button [disabled]="noteForm.invalid" type="submit"
+                    aria-label="Update button" (click)="editNote()" class="btn">
+                <span class="material-icons">edit</span>
+                {{_language.selectedLanguage.note__items.updateLegend}}
+            </button>
+        </ng-container>
     </div>
 </form>

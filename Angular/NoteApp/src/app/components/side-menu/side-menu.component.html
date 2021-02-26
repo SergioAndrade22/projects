@@ -1,21 +1,22 @@
 <ul class="content__list">
     <li class="content__item" [routerLink]="['/notes/create']" routerLinkActive="selected">
-        <i class="fas fa-plus"></i>
-        {{_language.selectedLanguage.sidebar__items.create}}
+        <i class="material-icons">note_add</i>
+        <span class="item__text">{{_language.selectedLanguage.sidebar__items.create}}</span>
     </li>
     <li class="content__item" [routerLink]="['/notes/view/active']" routerLinkActive="selected">
-        <i class="fas fa-clipboard"></i>
-        {{_language.selectedLanguage.sidebar__items.view}}
-    </li>
-    <li *ngFor="let cat of categories" class="content__item" [routerLink]="['categories/', cat.name+'-'+cat.id]" [state]="{id: cat.id}" routerLinkActive="selected">
-        <i class="fas fa-greater-than"></i>
-        {{cat.name}}
-    </li>
-    <li class="content__item" [routerLink]="['/notes/view/deleted']" routerLinkActive="selected">
-        <i class="fas fa-trash"></i>
-        {{_language.selectedLanguage.sidebar__items.delete}}
+        <i class="material-icons" style="transform: rotate(-90deg) rotateX(180deg);">note</i>
+        <span class="item__text">{{_language.selectedLanguage.sidebar__items.view}}</span>
     </li>
     <li class="content__item" [routerLink]="['/categories']" routerLinkActive="selected">
-        CATEGORIES
+        <i class="material-icons">fact_check</i>
+        <span class="item__text">{{_language.selectedLanguage.sidebar__items.category}}</span>
+    </li>
+    <li *ngFor="let cat of categories" class="content__item" [routerLink]="['categories/', cat.name+'-'+cat.id]" [state]="{id: cat.id}" routerLinkActive="selected">
+        <i class="material-icons">arrow_forward_ios</i>
+        <span class="item__text">{{cat.name}}</span>
+    </li>
+    <li class="content__item" [routerLink]="['/notes/view/deleted']" routerLinkActive="selected">
+        <i class="material-icons">delete</i>
+        <span class="item__text">{{_language.selectedLanguage.sidebar__items.delete}}</span>
     </li>
 </ul>

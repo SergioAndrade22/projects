@@ -4,8 +4,8 @@
         <p class="home__description">{{_language.selectedLanguage.home__header}}</p>
         <ul class="home__list">
             <li class="home__item" *ngFor="let detail of _language.selectedLanguage.home__details">
-                <i class="fas fa-caret-right home__item-icon"></i>
-                {{detail}}
+                <i class="material-icons">arrow_right</i>
+                <p style="display: inline;">{{detail}}</p>
             </li>
         </ul>
     </div>

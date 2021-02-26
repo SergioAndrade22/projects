@@ -1,6 +1,7 @@
 @import '../../../sass/variables'
 
 .note
+    position: relative
     display: flex
     flex-direction: column
     width: 35vw
@@ -24,7 +25,7 @@
         outline: none
         background: none
         color: inherit
-        width: 95%
+        width: 90%
     
     &__body
         outline: none
@@ -37,6 +38,9 @@
         color: inherit
     
     &__categories
+        position: absolute
+        top: 2
+        right: 0
         background: none
         border: none
         outline: none
@@ -45,47 +49,6 @@
     &__color-picker
         margin-right: 2rem
         width: 10%
-
-    &__btn
-        outline: none
-        text-decoration: none
-        border: $border-solid-small
-        background-color: var(--color-light)
-        font-weight: 700
-        color: var(--font-color-darker)
-        border-radius: 500rem
-        width: fit-content
-        padding: 0 1rem
-        cursor: pointer
-        transition: all .2s linear
-
-        &:hover:enabled
-            transform: scale(1.1) translateY(-.5rem)
-            box-shadow: $box-shadow-small
-
-        &:hover:disabled
-            cursor: not-allowed
-
-        &--left
-            align-self: flex-end
-            margin-right: 1rem
-
-        &--right
-            align-self: flex-start
-            margin-left: 1rem
-
-        &--center
-            align-self: center
-
-        &--create
-            &:hover:enabled
-                background-color: $color-confirm
-                color: var(--font-color-darker)
-        
-        &--delete
-            &:hover:enabled
-                background-color: $color-alert
-                color: var(--font-color-darker)
     
 .buttons-container
     display: flex
