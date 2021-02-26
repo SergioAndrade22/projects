@@ -1,11 +1,10 @@
 import { Component, Input, OnChanges } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
-import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 
 import { Observable } from 'rxjs';
 
-import { YesNoDialogService } from '../../shared/services/yes-no-dialog.service';
+import { DialogService } from '../../shared/services/dialog.service';
 import { CategoriesService } from '../../services/categories.service';
 import { Language } from '../../../languages/language.service';
 import { Note, NoteDto } from '../../core/models/note.model';
@@ -38,10 +37,9 @@ export class NoteComponent implements OnChanges {
 
   constructor(private _notes: NotesService,
               private _router: Router,
-              private _dialog: YesNoDialogService,
+              private _dialog: DialogService,
               private _categories: CategoriesService,
-              public _language: Language,
-              public dialog: MatDialog,) {
+              public _language: Language) {
     this.categoriesObs = this._categories.findAll();
   }
 
@@ -58,11 +56,13 @@ export class NoteComponent implements OnChanges {
       this.noteForm.controls['categories'].setValue(this.note.categories);
       if (this.note.bgcolor){
         this.noteColorPalette["background-color"] = this.note.bgcolor;
-        (document.getElementsByTagName('input')![2] as HTMLInputElement).value = this.note.bgcolor;
+        if(this.isCreate)
+          (document.getElementsByTagName('input')![2] as HTMLInputElement).value = this.note.bgcolor;
       }
       if (this.note.txtcolor){
         this.noteColorPalette["color"] = this.note.txtcolor;
-        (document.getElementsByTagName('input')![3] as HTMLInputElement).value = this.note.txtcolor;
+        if(this.isCreate)
+          (document.getElementsByTagName('input')![3] as HTMLInputElement).value = this.note.txtcolor;
       }
     }
   }
@@ -72,7 +72,7 @@ export class NoteComponent implements OnChanges {
   }
 
   saveNote(): void {    
-    const dialogRef = this._dialog.getDialog(this._language.selectedLanguage.dialog.save);
+    const dialogRef = this._dialog.getConfirmationDialog(this._language.selectedLanguage.dialog.save);
     dialogRef.afterClosed().subscribe(result => {
       if (result){
         const noteDto = new NoteDto();
@@ -94,7 +94,7 @@ export class NoteComponent implements OnChanges {
   }
   
   deleteNote(): void {
-    const dialogRef = this._dialog.getDialog(this._language.selectedLanguage.dialog.delete);
+    const dialogRef = this._dialog.getConfirmationDialog(this._language.selectedLanguage.dialog.delete);
     dialogRef.afterClosed().subscribe(result => {
       if (result){
         this._notes.delete(this.note!.id).subscribe();
@@ -104,7 +104,7 @@ export class NoteComponent implements OnChanges {
   }
   
   permanentDelete(): void {
-    const dialogRef = this._dialog.getDialog(this._language.selectedLanguage.dialog.permaDelete);
+    const dialogRef = this._dialog.getConfirmationDialog(this._language.selectedLanguage.dialog.permaDelete);
     dialogRef.afterClosed().subscribe(result => {
       if (result){
         this._notes.permaDelete(this.note!.id).subscribe();
