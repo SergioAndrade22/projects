@@ -26,8 +26,9 @@ import { CookiesService } from './services/cookies.service';
 import { HeaderComponent } from './components/layout/header/header.component';
 import { FooterComponent } from './components/layout/footer/footer.component';
 import { YesNoDialogComponent } from './shared/components/yes-no-dialog/yes-no-dialog.component';
-import { YesNoDialogService } from './shared/services/yes-no-dialog.service';
+import { DialogService } from './shared/services/dialog.service';
 import { CategoriesComponent } from './components/categories/categories.component';
+import { InputDialogComponent } from './shared/components/input-dialog/input-dialog.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { CategoriesComponent } from './components/categories/categories.componen
     HeaderComponent,
     FooterComponent,
     YesNoDialogComponent,
-    CategoriesComponent
+    CategoriesComponent,
+    InputDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -71,7 +73,7 @@ import { CategoriesComponent } from './components/categories/categories.componen
     CategoriesService,
     NotesService,
     Language,
-    YesNoDialogService
+    DialogService
   ],
   bootstrap: [AppComponent]
 })
