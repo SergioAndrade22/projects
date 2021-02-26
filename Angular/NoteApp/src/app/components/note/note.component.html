@@ -32,11 +32,11 @@
                 {{_language.selectedLanguage.note__items.createLegend}}
             </button>
 
-            <label for="colorPickerBackground">Background:</label>
+            <label for="colorPickerBackground">{{_language.selectedLanguage.note__items.bgLabel}}</label>
             <input [id]="'colorPickerBackground'+note?.id" class="note__color-picker" type="color" 
                    (change)="changeBackgroundColor(colorPickerBackground.value)" #colorPickerBackground/>
     
-            <label for="colorPickerText">Text:</label>
+            <label for="colorPickerText">{{_language.selectedLanguage.note__items.txtLabel}}</label>
             <input [id]="'colorPickerText'+note?.id" class="note__color-picker" type="color" 
                    (change)="changeTextColor(colorPickerText.value)" #colorPickerText/>
         </ng-container>

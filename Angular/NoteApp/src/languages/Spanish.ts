@@ -31,7 +31,9 @@ export const Spanish = {
         createLegend: 'Guardar',
         updateLegend: 'Actualizar',
         deleteLegend: 'A la papelera',
-        permaDeleteLegend: 'Eliminar'
+        permaDeleteLegend: 'Eliminar',
+        bgLabel: 'Fondo',
+        txtLabel: 'Texto'
     },
     notes__items: {
         message: 'No tienes notas creadas, intenta crear una...',
@@ -41,7 +43,8 @@ export const Spanish = {
     categories__items: {
         title: 'Categorías',
         edit: 'Renombrar',
-        delete: 'Eliminar'
+        delete: 'Eliminar',
+        create: 'Nueva Categoría'
     },
     dialog: {
         save: {

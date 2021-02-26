@@ -31,7 +31,9 @@ export const English = {
         createLegend: 'Save',
         updateLegend: 'Update',
         deleteLegend: 'To rubbish',
-        permaDeleteLegend: 'Delete'
+        permaDeleteLegend: 'Delete',
+        bgLabel: 'Background',
+        txtLabel: 'Text'
     },
     notes__items: {
         message: 'You have no notes, try creating one...',
@@ -41,7 +43,8 @@ export const English = {
     categories__items: {
         title: 'Categories',
         edit: 'Rename',
-        delete: 'Remove'
+        delete: 'Remove',
+        create: 'New Category'
     },
     dialog: {
         save: {
