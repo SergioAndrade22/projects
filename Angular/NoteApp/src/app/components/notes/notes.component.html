@@ -1,9 +1,9 @@
 <div class="notes-container">
-    <app-note [isView]="true" [isEditale]="false" *ngFor="let note of (notes | async)" 
+    <app-note [isView]="true" [isEditale]="false" *ngFor="let note of notes" 
               [id]="'note:'+note.id" [note]="note"></app-note>
 
-    <ng-container *ngIf="((notes | async)?.length === 0)">
-        <ng-container [ngSwitch]="(params | async)?.state">
+    <ng-container *ngIf="notes.length === 0">
+        <ng-container [ngSwitch]="(params | async)?.value">
             <div *ngSwitchCase="'active'" class="message__container">
                 <div class="message">
                     {{_language.selectedLanguage.notes__items.message}}
