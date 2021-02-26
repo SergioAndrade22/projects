@@ -11,7 +11,8 @@ export const English = {
     sidebar__items: {
         create: 'Create a note',
         view: 'All notes',
-        delete: 'Rubbish bin'
+        delete: 'Rubbish bin',
+        category: 'Manage categories'
     },
     navbar__items: {
         home: 'Home',
@@ -36,6 +37,11 @@ export const English = {
         message: 'You have no notes, try creating one...',
         messageDeleted: 'You have no deleted notes...',
         buttonLegend: 'New note'
+    },
+    categories__items: {
+        title: 'Categories',
+        edit: 'Rename',
+        delete: 'Remove'
     },
     dialog: {
         save: {

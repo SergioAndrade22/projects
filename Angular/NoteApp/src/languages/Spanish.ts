@@ -9,9 +9,10 @@ export const Spanish = {
         'Añadir funcionalidades que, a mi parecer, faltan en Google Keep'
     ],
     sidebar__items: {
-        create: 'Crear una nota',
-        view: 'Todas las notas',
-        delete: 'Papelera'
+        create: 'Crear nota',
+        view: 'Ver notas',
+        delete: 'Papelera',
+        category: 'Administrar categorías'
     },
     navbar__items: {
         home: 'Inicio',
@@ -36,6 +37,11 @@ export const Spanish = {
         message: 'No tienes notas creadas, intenta crear una...',
         messageDeleted: 'No tiene notas borradas...',
         buttonLegend: 'Nueva nota'
+    },
+    categories__items: {
+        title: 'Categorías',
+        edit: 'Renombrar',
+        delete: 'Eliminar'
     },
     dialog: {
         save: {
