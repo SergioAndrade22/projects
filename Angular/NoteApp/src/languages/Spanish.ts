@@ -54,7 +54,15 @@ export const Spanish = {
         },
         permaDelete: {
             title: 'Confirmar borrado permanente',
-            body: '¿Desea eliminar esta nota permanentemente?'
+            body: '¿Desea eliminar esta nota?'
+        },
+        categoryDelete: {
+            title: 'Confirmar borrado',
+            body: '¿Desea eliminar esta categoría?'
+        },
+        categoryCreate: {
+            title: 'Confirmar creación',
+            body: 'Ingrese el nombre de la categoría'
         },
         btnYes: 'Confirmar',
         btnNo: 'Cancelar'

@@ -9,10 +9,10 @@ export const English = {
         'Add funcionality that, under my consideration, Keep is missing'
     ],
     sidebar__items: {
-        create: 'Create a note',
-        view: 'All notes',
-        delete: 'Rubbish bin',
-        category: 'Manage categories'
+        create: 'Create Note',
+        view: 'All Notes',
+        delete: 'Rubbish Bin',
+        category: 'Manage Categories'
     },
     navbar__items: {
         home: 'Home',
@@ -23,7 +23,7 @@ export const English = {
         search: 'Search your notes'
     },
     footer__items: {
-        theme: 'Change theme'
+        theme: 'Change Theme'
     },
     note__items: {
         titlePlaceholder: 'Note title here...',
@@ -36,7 +36,7 @@ export const English = {
     notes__items: {
         message: 'You have no notes, try creating one...',
         messageDeleted: 'You have no deleted notes...',
-        buttonLegend: 'New note'
+        buttonLegend: 'New Note'
     },
     categories__items: {
         title: 'Categories',
@@ -45,16 +45,24 @@ export const English = {
     },
     dialog: {
         save: {
-            title: 'Confirm changes',
+            title: 'Confirm Changes',
             body: 'Do you want to save changes?'
         },
         delete: {
-            title: 'Confirm deletion',
+            title: 'Confirm Deletion',
             body: 'Do you want to send this note to rubbish bin?'
         },
         permaDelete: {
-            title: 'Confirm permanent deletion',
-            body: 'Do you want to permanently delete this note?'
+            title: 'Confirm Permanent Deletion',
+            body: 'Do you want to delete this note?'
+        },
+        categoryDelete: {
+            title: 'Confirm Deletion',
+            body: 'Do you want to delete this category?'
+        },
+        categoryCreate: {
+            title: 'Confirm Creation',
+            body: 'Enter the name of the new category'
         },
         btnYes: 'Confirm',
         btnNo: 'Cancel'
