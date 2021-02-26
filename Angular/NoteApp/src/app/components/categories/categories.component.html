@@ -11,5 +11,12 @@
                 <button class="btn btn--delete btn--categories" (click)="deleteCategory(category)">{{_language.selectedLanguage.categories__items.delete}}</button>
             </div>
         </mat-list-item>
+
+        <mat-list-item>
+            <button class="btn btn--create" (click)="newCategory()">
+                <span class="material-icons">add_circle</span>
+                NEW CATEGORY
+            </button>
+        </mat-list-item>
     </mat-list>
 </div>
