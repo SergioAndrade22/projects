@@ -7,11 +7,11 @@
         <i class="material-icons" style="transform: rotate(-90deg) rotateX(180deg);">note</i>
         <span class="item__text">{{_language.selectedLanguage.sidebar__items.view}}</span>
     </li>
-    <li class="content__item" [routerLink]="['/categories']" routerLinkActive="selected">
+    <li class="content__item" [routerLink]="['/categories/manage']" routerLinkActive="selected">
         <i class="material-icons">fact_check</i>
         <span class="item__text">{{_language.selectedLanguage.sidebar__items.category}}</span>
     </li>
-    <li *ngFor="let cat of categories" class="content__item" [routerLink]="['categories/', cat.name+'-'+cat.id]" [state]="{id: cat.id}" routerLinkActive="selected">
+    <li *ngFor="let cat of categories" class="content__item" [routerLink]="['category/', cat.name, cat.id]" routerLinkActive="selected">
         <i class="material-icons">arrow_forward_ios</i>
         <span class="item__text">{{cat.name}}</span>
     </li>

@@ -7,9 +7,9 @@ import { CategoriesComponent } from './components/categories/categories.componen
 export const ROUTES: Routes = [
     { path: '', pathMatch: 'full', redirectTo: 'home' },
     { path: 'home', component: HomeComponent },
-    { path: 'notes/view/:state', component: NotesComponent },
+    { path: 'notes/view/:value', component: NotesComponent },
     { path: 'notes/create', component: NewNoteComponent },
     { path: 'notes/edit/:id', component: NewNoteComponent },
-    { path: 'categories/:name', component: NotesComponent },
-    { path: 'categories', component: CategoriesComponent },
+    { path: 'category/:name/:id', component: NotesComponent },
+    { path: 'categories/manage', component: CategoriesComponent },
 ];
