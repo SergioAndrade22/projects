@@ -19,6 +19,7 @@ export class CategoriesComponent {
   changeName(category: Category, name: string): void {
     if(category.name !== name){
       this._categories.update(category.id, {name}).subscribe();
+      location.reload()
     }    
   }
 

@@ -1,10 +1,14 @@
 <div class="list-container">
     <mat-list class="list">
+        <mat-list-item>
+            <h1 class="list__title">Categories</h1>
+        </mat-list-item>
+
         <mat-list-item class="list__item" *ngFor="let category of (categories|async)">
             <input class="name-input item-element" [value]="category.name" #inp/>
             <div class="btn-container item-element">
-                <button class="btn" (click)="changeName(category, inp.value)">Rename</button>
-                <button class="btn" (click)="deleteCategory(category)">Delete</button>
+                <button class="btn btn--create" (click)="changeName(category, inp.value)">Rename</button>
+                <button class="btn btn--delete" (click)="deleteCategory(category)">Delete</button>
             </div>
         </mat-list-item>
     </mat-list>
